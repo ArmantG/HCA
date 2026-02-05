@@ -1,1 +1,0 @@
-import{z as d,i as n,A as u,m as c,B as i}from"./BpOnHRS3.js";function m(s,o,r){d(()=>{var a=n(()=>o(s,r?.())||{});if(r&&a?.update){var t=!1,f={};u(()=>{var e=r();c(e),t&&i(f,e)&&(f=e,a.update(e))}),t=!0}if(a?.destroy)return()=>a.destroy()})}export{m as a};
