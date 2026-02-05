@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.hardingchristianacademy.co.za/sitemap.xml
