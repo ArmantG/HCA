@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin '@tailwindcss/typography';
+
+/* Custom Theme Extensions */
+@theme {
+	--color-accent: rgb(205, 127, 0);
+	--color-accent2: rgb(72, 38, 20);
+	--color-accent-dark: rgb(110, 69, 0);
+	--color-accent-light: rgb(255, 245, 230);
+
+	--spacing-88: 22rem;
+	--spacing-112: 28rem;
+
+	--font-family-gt-walsheim-pro-medium: gt-walsheim-pro-medium, sans-serif;
+
+	--transition-delay-400: 400ms;
+	--transition-delay-600: 600ms;
+	--transition-delay-800: 800ms;
+	--transition-delay-1200: 1200ms;
+	--transition-delay-1400: 1400ms;
+	--transition-delay-1600: 1600ms;
+
+	--transition-property-transform-opacity-filter: transform, opacity, filter;
+
+	--scale-200: 1.75;
+
+	--shadow-nav-shadow: rgba(0, 0, 0, 0.6) 0px 5px 10px;
+	--shadow-nav-shadow-white: rgba(255, 255, 255, 1) 0px 5px 10px 10px;
+	--shadow-chat: rgba(0, 0, 0, 0.8) 0px 10px 20px;
+	--shadow-calendar: rgba(0, 0, 0, 0.2) 0 20px 20px -20px;
+	--shadow-card: rgba(205, 127, 0, 0.5) 0px 40px 35px -30px;
+	--shadow-card-black: rgba(0, 0, 0, 0.5) 0px 40px 35px -30px;
+	--shadow-card-black-2: rgba(0, 0, 0, 1) 0px 0px 25px 5px;
+	--shadow-custom-1: rgba(0, 0, 0, 0.25) 0px 0px 30px;
+	--shadow-chat-msg: rgba(0, 0, 0, 0.25) 0px 3px 5px;
+	--shadow-chat-msg-sm: rgba(0, 0, 0, 0.15) 0px 0px 5px;
+	--shadow-green: rgba(0, 255, 0, 0.5) 0px 20px 40px -20px;
+	--shadow-yellow: rgba(255, 242, 0, 0.5) 0px 20px 40px -20px;
+	--shadow-blue: rgba(37, 99, 235, 0.5) 0px 20px 40px -20px;
+	--shadow-red: rgba(255, 0, 0, 0.5) 0px 20px 40px -20px;
+	--shadow-neutral: rgba(175, 175, 175, 0.5) 0px 20px 40px -20px;
+	--shadow-pink: rgba(255, 0, 255, 0.5) 0px 20px 40px -20px;
+
+	--animate-float: float 3s ease-in-out infinite;
+	--animate-expand: expand 0.5s forwards;
+	--animate-expand2: expand2 0.5s forwards;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(20px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes expand {
+	0% {
+		scale: 1;
+		opacity: 1;
+	}
+	50% {
+		scale: 8;
+		opacity: 1;
+	}
+	100% {
+		scale: 1;
+		opacity: 0;
+	}
+}
+
+@keyframes expand2 {
+	0% {
+		scale: 1;
+		opacity: 1;
+	}
+	50% {
+		scale: 0.8;
+	}
+	100% {
+		scale: 1;
+		opacity: 0;
+	}
+}
+
+*,
+*::before,
+*::after {
+	font-family: gt-walsheim-pro, sans-serif;
+}
+
+body {
+	background: black;
+}
+
+@font-face {
+	font-family: gt-walsheim-pro;
+	src: url('./assets/fonts/gt-walsheim-pro/GTWalsheimPro-Regular.ttf');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: gt-walsheim-pro-medium;
+	src: url('./assets/fonts/gt-walsheim-pro/GTWalsheimPro-Medium.ttf');
+	font-display: swap;
+}
+
+:root {
+	--scrollbar-track: rgb(30, 30, 30);
+	--scrollbar-thumb: rgb(90, 90, 90);
+}
+
+/* Custom Background Images */
+.bg-grade-school {
+	background-image: url('./assets/images/gradeSchool.webp');
+}
+
+.bg-junior-high {
+	background-image: url('./assets/images/juniorHigh.webp');
+}
+
+.bg-senior-high {
+	background-image: url('./assets/images/seniorHigh.webp');
+}
+
+.bg-dagitab {
+	background-image: url('./assets/images/dagitab.webp');
+}
+
+.bg-default {
+	background-image: url('./assets/images/pcsAnnex2.webp');
+}
+
+/* Custom Gradient Utilities */
+.bg-linear-to-t {
+	background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.bg-linear-to-r {
+	background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-linear-to-l {
+	background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+.bg-linear-to-b {
+	background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+/* Custom Brightness Utilities */
+.brightness-30 {
+	filter: brightness(0.3);
+}
+
+/* Scrollbar */
+/* Firefox only */
+@supports (scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track)) {
+	* {
+		scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+		scrollbar-width: thin;
+	}
+}
+
+/* Other browsers */
+::-webkit-scrollbar {
+	width: 0.25em;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb);
+	border-radius: 100vw;
+}
+
+:root::view-transition-old(root) {
+	animation: 150ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+}
+
+:root::view-transition-new(root) {
+	animation: 250ms cubic-bezier(0, 0, 0.2, 1) 150ms both fade-in;
+}
+
+@layer base {
+	html.lenis,
+	html.lenis body {
+		height: auto;
+	}
+
+	.lenis.lenis-smooth {
+		scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+		overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+		overflow: hidden;
+	}
+
+	.lenis.lenis-scrolling iframe {
+		pointer-events: none;
+	}
+}
