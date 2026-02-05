@@ -1,0 +1,1 @@
+import"../chunks/DsnmJJEf.js";import{a as i,c as t,d as s,r as n}from"../chunks/BpOnHRS3.js";import{s as m}from"../chunks/DQmZZ_DZ.js";var p=t('<div class="min-h-screen bg-white flex relative"><!></div>');function v(a,e){var r=p(),o=s(r);m(o,()=>e.children),n(r),i(a,r)}export{v as component};

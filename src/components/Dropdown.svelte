@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import { dropdownItems } from '../constants';
 	let { drop, scrolled } = $props<{ drop: string; scrolled: boolean }>();
-	const isChat = $derived(page.url.pathname === '/chat');
+	const isChat = $derived(page.url.pathname === '/contact');
 </script>
 
 <div

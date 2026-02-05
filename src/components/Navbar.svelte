@@ -29,7 +29,7 @@
 		}
 	}
 
-	const applyClass = $derived(page.url.pathname === '/chat');
+	const applyClass = $derived(page.url.pathname === '/contact');
 
 	onMount(() => {
 		window.addEventListener('scroll', shrinkNav);
@@ -51,7 +51,7 @@
 	<nav
 		class={`absolute left-0 top-0 z-40 hidden w-full transform-gpu items-center
     justify-between px-[5%] transition-[box-shadow,background-color,height] duration-500 ease-in-out lg:flex ${
-			scrolled || applyClass ? 'bg-accent shadow-nav-shadow h-16' : 'h-40 bg-none shadow-none'
+			scrolled || applyClass ? 'bg-navy shadow-nav-shadow h-16' : 'h-40 bg-none shadow-none'
 		}`}
 	>
 		<a
@@ -60,7 +60,7 @@
 				scrolled || applyClass ? 'scale-50' : 'scale-100'
 			}`}
 		>
-			<!-- PCS logo -->
+			<!-- HCA logo -->
 			<div class="relative h-28 w-28">
 				<img
 					src={pcsLogoNewOutlineWhite}
@@ -70,7 +70,7 @@
 				/>
 			</div>
 
-			<!-- PCS text -->
+			<!-- HCA text -->
 			<div
 				class="flex origin-left flex-col text-white transition-[color] duration-500 ease-in-out hover:text-neutral-400"
 			>
@@ -126,7 +126,7 @@
 
 	<!-- Navbar small devices -->
 	<nav
-		class="bg-accent shadow-nav-shadow flex h-16 w-full items-center justify-between from-transparent px-[5%] lg:hidden"
+		class="bg-navy shadow-nav-shadow flex h-16 w-full items-center justify-between from-transparent px-[5%] lg:hidden"
 	>
 		<a href="/">
 			<div class="relative h-14 w-14">

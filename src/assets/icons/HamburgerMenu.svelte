@@ -2,7 +2,7 @@
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	fill="currentColor"
-	class="bi bi-list h-[25px] w-[25px] cursor-pointer text-white"
+	class="bi bi-list h-6.25 w-6.25 cursor-pointer text-white"
 	viewBox="0 0 16 16"
 >
 	<path

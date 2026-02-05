@@ -15,7 +15,7 @@
 	}
 </script>
 
-<div class="border-b-accent -z-10 h-full w-full border-b-4 bg-black bg-opacity-90 pb-4">
+<div class="border-b-accent -z-10 h-full w-full border-b-4 bg-navy bg-opacity-95 pb-4">
 	<ul class="flex flex-col">
 		{#each navItems as item, idx (idx)}
 			{#if item.data === 'about' || item.data === 'academics'}

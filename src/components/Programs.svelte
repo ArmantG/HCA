@@ -20,25 +20,25 @@
 
 	const programs = [
 		{
-			title: 'Grade School',
+			title: 'Foundation Phase',
 			description:
-				'Nurturing learning, character, and life skills for academic and personal success through a dynamic and holistic approach.',
-			bg: 'bg-grade-school',
-			source: '/grade-school'
+				'Grades 1 to 3 build strong reading, writing, and number sense through guided, play-based learning.',
+			bg: 'bg-default',
+			source: '/foundation-phase'
 		},
 		{
-			title: 'Junior High',
+			title: 'Intermediate Phase',
 			description:
-				'Fostering academic excellence and holistic development through Catholic teachings, creative talents, and social responsibility.',
-			bg: 'bg-junior-high',
-			source: '/junior-high'
+				'Grades 4 to 6 expand into subject-based learning with growing independence and study skills.',
+			bg: 'bg-default',
+			source: '/intermediate-phase'
 		},
 		{
-			title: 'Senior High',
+			title: 'Senior Phase',
 			description:
-				'Empowering students for lifelong success through a holistic education that fosters critical thinking, practical skills, and ethical values.',
-			bg: 'bg-senior-high',
-			source: '/senior-high'
+				'Grade 7 deepens content mastery and prepares learners for high school expectations.',
+			bg: 'bg-default',
+			source: '/senior-phase'
 		}
 	];
 
@@ -89,66 +89,66 @@
 					}`}
 				>
 					At Harding Christian Academy, we offer a comprehensive educational experience for learners
-					in grades K-12. Our academic programs are designed to provide a strong foundation for our
-					students and help them reach their full potential. With our commitment to academic
+					in Grades 1 to 7. Our academic programs are designed to provide a strong foundation for
+					our students and help them reach their full potential. With our commitment to academic
 					excellence, personalized learning, and a supportive community, our academic programs
-					provide an exceptional educational experience for all students.
+					provide an exceptional educational experience for every learner.
 				</p>
 			</div>
 		</div>
 		<div class="relative hidden h-full w-full items-center justify-center lg:flex">
 			<OrangeBlob1 />
 			<div
-				class={`card-group transition-transform-opacity-filter animate-float shadow-card-black-2 aspect-[5/7] w-72 duration-1000 ease-in-out ${
+				class={`card-group transition-transform-opacity-filter animate-float shadow-card-black-2 aspect-5/7 w-72 duration-1000 ease-in-out ${
 					isInView[0] ? 'lg:opacity-100 lg:blur-0' : 'lg:opacity-0 lg:blur-[2px]'
 				}`}
 			>
 				<img
 					src={confirmation}
-					class="absolute left-1/2 top-1/2 aspect-[5/7] w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs confirmation"
+					class="absolute left-1/2 top-1/2 aspect-5/7 w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy confirmation"
 					loading="lazy"
 				/>
 				<img
 					src={kinaadman3}
-					class="absolute left-1/2 top-1/2 aspect-[5/7] w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs kinaadman dagitab"
+					class="absolute left-1/2 top-1/2 aspect-5/7 w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy activity"
 					loading="lazy"
 				/>
 				<img
 					src={confirmation2}
-					class="absolute left-1/2 top-1/2 aspect-[5/7] w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs confirmation"
+					class="absolute left-1/2 top-1/2 aspect-5/7 w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy confirmation"
 					loading="lazy"
 				/>
 				<img
 					src={equalizer}
-					class="absolute left-1/2 top-1/2 aspect-[5/7] w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs equalizer"
+					class="absolute left-1/2 top-1/2 aspect-5/7 w-28 -translate-x-1/2 -translate-y-1/2 transform-gpu rounded-2xl bg-opacity-25 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy activity"
 					loading="lazy"
 				/>
 				<img
 					src={kinaadman}
-					class="shadow-card-black-2 absolute aspect-[5/7] w-72 -translate-x-[15%] -rotate-[6deg] transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs kinaadman dagitab"
+					class="shadow-card-black-2 absolute aspect-5/7 w-72 -translate-x-[15%] -rotate-6 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy activity"
 					loading="lazy"
 				/>
 				<img
 					src={bsp}
-					class="shadow-card-black-2 absolute aspect-[5/7] w-72 -translate-x-[5%] -rotate-2 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
-					alt="pcs boy scout"
+					class="shadow-card-black-2 absolute aspect-5/7 w-72 -translate-x-[5%] -rotate-2 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy activity"
 					loading="lazy"
 				/>
 				<img
 					src={mathquizbee}
-					class="shadow-card-black-2 absolute aspect-[5/7] w-72 translate-x-[5%] rotate-2 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
+					class="shadow-card-black-2 absolute aspect-5/7 w-72 translate-x-[5%] rotate-2 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover transition-transform duration-500 ease-in-out"
 					alt="padss mathira mathibay 2023"
 					loading="lazy"
 				/>
 				<img
 					src={kinaadman2}
-					class="shadow-card-black-2 absolute aspect-[5/7] w-72 translate-x-[15%] translate-y-[3%] rotate-[6deg] transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover object-left transition-transform duration-500 ease-in-out"
-					alt="pcs kinaadman dagitab"
+					class="shadow-card-black-2 absolute aspect-5/7 w-72 translate-x-[15%] translate-y-[3%] rotate-6 transform-gpu rounded-2xl bg-white bg-opacity-10 object-cover object-left transition-transform duration-500 ease-in-out"
+					alt="Harding Christian Academy activity"
 					loading="lazy"
 				/>
 			</div>
@@ -187,7 +187,7 @@
 						<div class="flex h-full flex-col justify-end">
 							<div class="gradient px-4 pb-4 pt-16">
 								<h4
-									class="before:bg-accent-dark after:bg-accent relative text-base text-white transition-colors duration-300 before:absolute before:-bottom-1 before:left-[calc(1rem*-1)] before:h-[2px] before:w-full before:content-[''] after:absolute after:-bottom-1 after:left-[calc(1rem*-1)] after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] sm:text-xl"
+									class="before:bg-accent-dark after:bg-accent relative text-base text-white transition-colors duration-300 before:absolute before:-bottom-1 before:-left-4 before:h-0.5 before:w-full before:content-[''] after:absolute after:-bottom-1 after:-left-4 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] sm:text-xl"
 								>
 									{program.title}
 								</h4>
@@ -198,7 +198,7 @@
 								</p>
 								<a
 									href={program.source}
-									class="rounded-full border-[1px] border-neutral-400 px-3 py-1 text-sm text-white transition-colors duration-300 hover:bg-white hover:text-black sm:text-base"
+									class="rounded-full border border-neutral-400 px-3 py-1 text-sm text-white transition-colors duration-300 hover:bg-white hover:text-black sm:text-base"
 									type="button">Learn More</a
 								>
 							</div>
@@ -241,7 +241,7 @@
 						<div class="flex h-full flex-col justify-end pt-40">
 							<div class="gradient px-4 pb-4 pt-16">
 								<div
-									class="before:bg-accent-dark after:bg-accent relative text-base text-white transition-colors duration-300 before:absolute before:-bottom-1 before:left-[calc(1rem*-1)] before:h-[2px] before:w-full before:content-[''] after:absolute after:-bottom-1 after:left-[calc(1rem*-1)] after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-['']"
+									class="before:bg-accent-dark after:bg-accent relative text-base text-white transition-colors duration-300 before:absolute before:-bottom-1 before:-left-4 before:h-0.5 before:w-full before:content-[''] after:absolute after:-bottom-1 after:-left-4after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-['']"
 								>
 									<h4 class="line-clamp-1 sm:text-xl" title={event.content.title}>
 										{event.content.title}
@@ -258,7 +258,7 @@
 								</p>
 								<a
 									href={event.content.link}
-									class="rounded-full border-[1px] border-neutral-400 px-3 py-1 text-sm text-white transition-colors duration-300 hover:bg-white hover:text-black sm:text-base"
+									class="rounded-full border border-neutral-400 px-3 py-1 text-sm text-white transition-colors duration-300 hover:bg-white hover:text-black sm:text-base"
 									type="button"
 									target="_blank"
 									rel="noreferrer">Learn More</a

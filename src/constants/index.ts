@@ -52,16 +52,16 @@ export const dropdownItems: { [key: string]: DropdownItem[] } = {
 			path: '/academics'
 		},
 		{
-			title: 'Grade School',
-			path: '/grade-school'
+			title: 'Foundation Phase',
+			path: '/foundation-phase'
 		},
 		{
-			title: 'Junior High',
-			path: '/junior-high'
+			title: 'Intermediate Phase',
+			path: '/intermediate-phase'
 		},
 		{
-			title: 'Senior High',
-			path: '/senior-high'
+			title: 'Senior Phase',
+			path: '/senior-phase'
 		},
 		{
 			title: 'Calendar',
@@ -78,6 +78,10 @@ export const dropdownItems: { [key: string]: DropdownItem[] } = {
 			path: '/policies'
 		},
 		{
+			title: 'Code of Conduct',
+			path: '/policies/code-of-conduct'
+		},
+		{
 			title: 'Gallery',
 			path: '/gallery'
 		},
@@ -91,15 +95,15 @@ export const dropdownItems: { [key: string]: DropdownItem[] } = {
 export const philosophy = [
 	{
 		title: 'Philosophy',
-		text: 'Harding Christian Academy exists to provide Christ-centered education that shapes character, develops strong academics, and prepares learners to serve their community with integrity and compassion.'
+		text: 'Harding Christian Academy exists to provide Christ-centered education that shapes character, strengthens academics, and prepares learners to serve their community with integrity and compassion.'
 	},
 	{
 		title: 'Vision',
-		text: 'To be a trusted Christian school known for academic excellence, spiritual formation, and graduates who lead with wisdom and humility.'
+		text: 'To be a trusted Christian school in Harding known for academic excellence, spiritual formation, and graduates who lead with wisdom and humility.'
 	},
 	{
 		title: 'Mission',
-		text: 'We partner with families to provide rigorous learning, a nurturing environment, and purposeful discipleship from early years through graduation.'
+		text: 'We partner with families to provide rigorous learning, a nurturing environment, and purposeful discipleship from Grades 1 to 7.'
 	}
 ]
 
@@ -111,7 +115,7 @@ export const goals = [
 		text: 'Build a learning community that values service, responsibility, and respect for others.'
 	},
 	{
-		text: 'Provide a safe and caring environment that supports every learner’s growth and well-being.'
+		text: "Provide a safe and caring environment that supports every learner's growth and well-being."
 	},
 	{
 		text: 'Encourage excellence in academics, athletics, and the arts through disciplined practice and mentorship.'
@@ -122,43 +126,38 @@ export const coreValues = [
 	{
 		title: 'Faith',
 		text: [
-			'Spiritually and Emotionally Mature',
-			'Passionate commitment to truth',
-			'Respect for the dignity of the person'
+			'Rooted in Scripture and prayer',
+			'Hope and trust in God',
+			'Respect for the dignity of every person'
 		],
 		values: [
-			'Piety',
-			'Courage',
-			'Fidelity',
-			'Communion',
-			'Trust',
-			'Knowledge of the Catholic Faith'
-		]
-	},
-	{
-		title: 'Hope',
-		text: ['Excellence', 'Professional Dignity and Attitude', 'Christian Leadership'],
-		values: [
-			'Competence',
-			'Resourcefulness',
-			'Self-reliance',
-			'Perseverance',
-			'Maturity',
-			'Accountability'
-		]
-	},
-	{
-		title: 'Charity',
-		text: ['Social involvement', 'Simplicity of lifestyle', 'Humble - loving service'],
-		values: [
-			'Stewardship',
-			'Preferential Love for the Poor',
-			'Nationalism',
-			'Integrity',
-			'Discipline',
+			'Reverence',
+			'Gratitude',
 			'Humility',
+			'Truthfulness',
+			'Steadfastness'
+		]
+	},
+	{
+		title: 'Integrity',
+		text: ['Honesty in word and deed', 'Responsible choices', 'Respect for others'],
+		values: [
+			'Accountability',
+			'Courage',
+			'Self-control',
+			'Discipline',
+			'Reliability'
+		]
+	},
+	{
+		title: 'Service',
+		text: ['Compassion for others', 'Community involvement', 'Stewardship of resources'],
+		values: [
+			'Kindness',
+			'Generosity',
 			'Justice',
-			'Prudence'
+			'Perseverance',
+			'Teamwork'
 		]
 	}
 ]
@@ -193,113 +192,113 @@ export const institutionDirection = [
 export const services = [
 	{
 		id: 1,
-		title: 'Evangelization and Christian Formation Services',
-		text: 'Harding Christian Academy focuses on holistic formation rooted in Christ, nurturing learners who serve with compassion and live with integrity.'
+		title: 'Faith Formation and Chapel Services',
+		text: 'Spiritual growth through chapel, Scripture engagement, and service opportunities that shape Christ-centered character.'
 	},
 	{
 		id: 2,
 		title: 'Guidance and Counseling Services',
-		text: "The Guidance and Counseling Offices in both departments monitor the academic and behavioral performance of pupils.  The Guidance Counselors provide counseling to both parents and pupils on instructional and behavioral concerns.  The offices administer diagnostic, achievement and other specialized tests to all learners.  Information and orientation highlights are also provided to new students and parents regarding the school's on-going thrusts, institutional policies, and departmental curricular programs."
+		text: 'Academic, social, and emotional support for learners, with family partnerships and referrals as needed.'
 	},
 	{
 		id: 3,
-		title: 'Prefect of Students Services',
-		text: 'The Office of the Prefect of Students (OPS) deals with referred cases of misbehavior and other disciplinary problems of young children and teens. It undertakes initial investigation of cases referred and keeps records of cases for future reference. It monitors attendance and other policy requirements. It also issues exit slips to students with health problems and grants them admission following proper school procedures.'
+		title: 'Student Life and Discipline Services',
+		text: 'Positive behavior support, restorative discipline, and oversight of attendance and conduct expectations.'
 	},
 	{
 		id: 4,
 		title: 'Library and Instructional Media Services',
-		text: 'The Instructional Media Center or Library serves the intellectual and research activities of pupils, students and faculty. They are encouraged to avail of its services on assigned dates by following rules and regulations in borrowing, handling and returning books and other reference materials. An annual Book Fair is held where pupils can avail of educational and interactive materials such as books, magazines, toys, games and related items. Book exhibits are also sponsored to stimulate interest and utilization of new book acquisitions.'
+		text: 'A curated collection of print and digital resources that supports reading, research, and media literacy.'
 	},
 	{
 		id: 5,
-		title: 'Medical and Dental Services',
-		text: 'The School Clinic checks the medical and dental concerns of pupils, students, and personnel. A doctor and a dentist are always on hand to provide regular and periodic physical examination to pupils and students. They are ably assisted by nursing staffs who administer first aid to our clientele.'
+		title: 'Health Services',
+		text: 'Basic first aid, health monitoring, and coordination with families for learner wellbeing.'
 	},
 	{
 		id: 6,
-		title: 'Medical and Dental Services',
-		text: 'The School Clinic checks the medical and dental concerns of pupils, students, and personnel. A doctor and a dentist are always on hand to provide regular and periodic physical examination to pupils and students. They are ably assisted by nursing staffs who administer first aid to our clientele.'
+		title: 'Wellness and Safety Services',
+		text: 'Health education, safety protocols, and support for a safe and caring campus environment.'
 	},
 	{
 		id: 7,
 		title: "Registrar and Students' Records Services",
-		text: "The Registrar's Office keeps track of students' records and prepares all communications concerning school credentials of pupils and students. The Registrar supervises the building and storage retrieval, as well as the safety and confidentiality of student records."
+		text: 'Secure management of learner records, enrolment documentation, and academic history.'
 	},
 	{
 		id: 8,
 		title: 'Information Technology Services',
-		text: 'The Management Information System Office provides the central information technology operations of the school. M.I.S. Office helps identify, select and evaluate technology solutions that will improve overall effectiveness and efficiency of school operations.'
+		text: 'Technology support for learning platforms, devices, and campus systems.'
 	},
 	{
 		id: 9,
-		title: 'Promotions and Publications',
-		text: 'The communications team manages school publications, the website, and official social channels, and supports event and announcement materials.'
+		title: 'Communications and Publications',
+		text: 'School communications, publications, website updates, and official announcements.'
 	},
 	{
 		id: 10,
 		title: 'Physical Plant and Maintenance Services',
-		text: 'The Physical Plant Administrator oversees the general technical supervision of the school plant and property, and monitors the structural condition of all the facilities.'
+		text: 'Facilities upkeep, safety checks, and maintenance of buildings and grounds.'
 	},
 	{
 		id: 11,
 		title: 'Custodial Services',
-		text: 'The Custodial Head supervises the utility personnel in maintaining the over-all cleanliness and orderliness of the school surroundings.'
+		text: 'Daily cleaning, sanitation, and preparation of classrooms and shared spaces.'
 	},
 	{
 		id: 12,
 		title: 'Security Services',
-		text: 'An upgraded and state-of-the-art surveillance system placed on strategic locations of the campus with round-the-clock monitoring viewed via internet.'
+		text: 'Campus access control, visitor procedures, and monitoring for safety and security.'
 	},
 	{
 		id: 13,
 		title: 'Dining and Food Services',
-		text: 'The campus canteen provides affordable, well-balanced meals and snacks to the school community.'
+		text: 'Healthy, affordable meals and snacks aligned with nutrition expectations.'
 	},
 	{
 		id: 14,
 		title: 'Public Address System',
-		text: 'Strategic locations in entrances, exits, hallways, common areas, and major offices are installed with a large number of speakers in order to distribute and disseminate a message to the general public around the school campus. The major purpose is to read announcements or declare states of emergency.'
+		text: 'School-wide announcements and emergency alerts for timely communication.'
 	},
 	{
 		id: 15,
 		title: 'Computer Laboratories',
-		text: 'This facility enables the Grade School pupils and the High School students to develop skills and creativity in utilizing the different softwares used in computer education. The Laboratory provides hands-on experience on computer operations where they can operate by themselves in producing school requirements.'
+		text: 'Hands-on computing experiences that build digital literacy, research skills, and creativity.'
 	},
 	{
 		id: 16,
 		title: 'Science Laboratories',
-		text: 'The Science teachers were able to develop their personally designed laboratory experiments and activities which they think will suit the needs and level of interest of the students. Some of these activities are used as motivation for getting the attention and interest of the students, especially in opening a new topic/concept in Science. Most of these activities/experiments make use of familiar or common materials in order for students to realize their importance in daily life activities. These also help the students be aware of some chemicals inside or outside the environment. The experiments are also designed to suggest further studies and experiments on similar concepts. Thereby, the analytical and scientific thinking skills of the students are developed. These could also help them realize the career they may want to pursue in the future.'
+		text: 'Inquiry-based experiments and investigations that connect science concepts to real-world learning.'
 	},
 	{
 		id: 17,
-		title: 'Technology and Livelihood Laboratories',
-		text: "The Technology and Livelihood Economics (TLE) Laboratory aims to increase students' capacity for social orientedness through knowledge and experience of various occupational opportunities and the development of occupational skills and proficiency. The laboratory also develops the ability to create new, artistic or useful things out of simple, inexpensive, ordinary, raw and local materials. The students can also develop personal and communal potential, e.g., sense of responsibility, leadership and team work, appreciation for work, and work values, spirit of generosity and service."
+		title: 'Technology and Skills Laboratories',
+		text: 'Practical skills training, design thinking, and project-based learning for real-world readiness.'
 	},
 	{
 		id: 18,
-		title: 'Audio Visual Room (Mary Seat of Wisdom Hall)',
-		text: 'A multi-purpose hall equipped with multimedia and LCD projectors that serve as viewing and venue for extra class activities, meetings, demonstrations, programs and recollections. The Parish community and other schools can also avail the use of this facility through proper permission and clearance from the school administration in-charge.'
+		title: 'Audio Visual Room (Multi-purpose Hall)',
+		text: 'Presentations, assemblies, and events supported by audio-visual equipment.'
 	},
 	{
 		id: 19,
 		title: 'Gymnasium',
-		text: 'The multi-gym is located at the 5th floor of Sta. Marta building where academic, spiritual and recreational activities are held.'
+		text: 'Indoor sports, fitness activities, and school events.'
 	},
 	{
 		id: 20,
-		title: 'Azotea de Teresita',
-		text: 'A vista of coolness, Azotea de Teresita adds beauty and grace to the school grounds which serves as an interactive venue for student activities, meetings, conferences, and programs.'
+		title: 'Outdoor Terrace',
+		text: 'A welcoming outdoor space for gatherings, student activities, and community events.'
 	},
 	{
 		id: 21,
 		title: 'Quadrangle',
-		text: 'The quadrangle serves as a central gathering space for assemblies, sports, and community activities in all seasons.'
+		text: 'A central gathering space for assemblies, sports, and community activities.'
 	},
 	{
 		id: 22,
 		title: 'Comfort Rooms',
-		text: 'Comfort Rooms of both the Grade School and the High School Departments are strategically located in the different floors of the buildings to provide the school constituents a clean and sanitary area for personal comfort and necessities.'
+		text: 'Clean, accessible restrooms for learners, staff, and visitors.'
 	}
 ]
 
@@ -345,39 +344,35 @@ export const gradeSchool = {
 	title: 'The Grade School Department Objectives:',
 	content: [
 		{
-			mainText: 'To develop basic social, moral, and spiritual values.',
+			mainText: 'Build strong foundations in literacy, numeracy, and learning habits.',
 			subText: [
-				'Ability to work cooperatively with others in the home and in school.',
-				'Obedience to parents, teachers and other persons in authority.',
-				'Honesty and sincerity in speech and actions.',
-				'Active participation in Eucharistic celebrations and other religious activities.'
+				'Reading fluency, comprehension, and clear communication.',
+				'Number sense and problem solving through practice and play.',
+				'Curiosity and confidence in asking questions and exploring new ideas.'
 			]
 		},
 		{
-			mainText: 'To support love for learning and effective study skills.',
+			mainText: 'Develop character and faith-filled habits.',
 			subText: [
-				'Mastery of basic skills in Science and Mathematics.',
-				'Increased levels of reading comprehension skills.',
-				"Confidence and proficiency in expressing one's self in English and Filipino.",
-				'Self-reliance, critical thinking, and creativity in performing learning tasks.'
+				'Respect, kindness, and responsibility in daily interactions.',
+				'Participation in prayer, worship, and community service.',
+				'Habits of honesty, gratitude, and self-control.'
 			]
 		},
 		{
-			mainText: 'To promote good physical and mental health.',
+			mainText: 'Promote healthy growth and safe routines.',
 			subText: [
-				'Mindfulness on matters of food and nutrition, proper hygiene, and good grooming.',
-				'Maintaining proper body mechanics in executing sports and physical fitness skills.',
-				'Acceptance of changing conditions and learning from past experiences.',
-				"Refinement in speech and manners in conducting one's self in any kind of gathering."
+				'Good hygiene, healthy food choices, and active play.',
+				'Social-emotional skills for confidence and resilience.',
+				'A safe, caring classroom culture.'
 			]
 		},
 		{
-			mainText: 'To enhance compassion for the poor and suffering.',
+			mainText: 'Encourage service and community involvement.',
 			subText: [
-				'Understanding of the meaning of life as shown through habits of simplicity, industry, and thrift.',
-				'Generosity in giving help to the needy.',
-				'Respect for the dignity of persons especially the handicapped and the disadvantaged.',
-				'Active participation in campaigns for the care and protection of the environment.'
+				'Helping others through age-appropriate service projects.',
+				'Care for school property and the environment.',
+				'Appreciation for family, community, and country.'
 			]
 		}
 	]
@@ -387,40 +382,36 @@ export const juniorHigh = {
 	title: 'High School education aims to develop its students in the following aspects:',
 	content: [
 		{
-			mainText: 'To strengthen a set of values and an ethical system by which to live.',
+			mainText: 'Strengthen character and values that guide daily life.',
 			subText: [
-				'Ability to work cooperatively with others in the school, family, and community.',
-				'Adherence to Catholic teachings regarding social and moral issues.',
-				'Honesty, sincerity, and dependability in interpersonal communications and relationships.',
-				'Active participation in Eucharistic celebrations and other Catholic religious activities.'
+				'Respectful communication and teamwork with peers and staff.',
+				'Integrity, honesty, and responsibility in choices.',
+				'Participation in chapel, service, and community life.'
 			]
 		},
 		{
 			mainText:
-				'To promote life-long learning through opportunities for self-discovery, self-expression, and creativity.',
+				'Promote lifelong learning through self-discovery, expression, and creativity.',
 			subText: [
-				'Effective study and research skills in processing various sources of information.',
-				"Proficiency in expressing one's self in written and oral English and Filipino.",
-				'Development of creative talents towards making informed career choice/s.',
-				'Competence in making social inquiries towards active participation in nation-building.'
+				'Effective study habits, research skills, and critical thinking.',
+				'Clear communication in writing and speaking.',
+				'Exploration of talents and emerging interests.'
 			]
 		},
 		{
-			mainText: 'To promote good physical and mental health.',
+			mainText: 'Promote healthy growth and personal discipline.',
 			subText: [
-				'Respect for the dignity of human persons.',
-				'Aptitude in dealing with life, its problems and stresses.',
-				'Ability to adapt to changing conditions and to learn from mistakes.',
-				'Self-reliance and self-discipline in pursuing a personal vision.'
+				'Healthy routines, active living, and responsible decision making.',
+				'Resilience, self-awareness, and emotional balance.',
+				'Self-discipline and perseverance in academics and activities.'
 			]
 		},
 		{
-			mainText: 'To deepen understanding of and commitment for social responsibility.',
+			mainText: 'Deepen commitment to service and community responsibility.',
 			subText: [
-				'Understanding the meaning of life in relation to human suffering and human solidarity.',
-				'Socially responsible behavior in the context of justice, fairness, and compassion for the poor and the weak.',
-				'Respect for the dignity of persons as shown in refinement in speech and actions.',
-				'Active leadership and participation in advocacy campaigns for the care and protection of the environment.'
+				'Participation in service projects and outreach opportunities.',
+				'Respect for others and care for the environment.',
+				'Positive leadership and contribution to school life.'
 			]
 		}
 	]
@@ -430,40 +421,36 @@ export const seniorHigh = {
 	title: 'High School education aims to develop its students in the following aspects:',
 	content: [
 		{
-			mainText: 'To strengthen a set of values and an ethical system by which to live.',
+			mainText: 'Strengthen character and values that guide daily life.',
 			subText: [
-				'Ability to work cooperatively with others in the school, family, and community.',
-				'Adherence to Catholic teachings regarding social and moral issues.',
-				'Honesty, sincerity, and dependability in interpersonal communications and relationships.',
-				'Active participation in Eucharistic celebrations and other Catholic religious activities.'
+				'Respectful communication and teamwork with peers and staff.',
+				'Integrity, honesty, and responsibility in choices.',
+				'Participation in chapel, service, and community life.'
 			]
 		},
 		{
 			mainText:
-				'To promote life-long learning through opportunities for self-discovery, self-expression, and creativity.',
+				'Promote lifelong learning through self-discovery, expression, and creativity.',
 			subText: [
-				'Effective study and research skills in processing various sources of information.',
-				"Proficiency in expressing one's self in written and oral English and Filipino.",
-				'Development of creative talents towards making informed career choice/s.',
-				'Competence in making social inquiries towards active participation in nation-building.'
+				'Advanced study habits, research skills, and critical thinking.',
+				'Clear communication for academic and career readiness.',
+				'Exploration of talents and informed pathway choices.'
 			]
 		},
 		{
-			mainText: 'To promote good physical and mental health.',
+			mainText: 'Promote healthy growth and personal discipline.',
 			subText: [
-				'Respect for the dignity of human persons.',
-				'Aptitude in dealing with life, its problems and stresses.',
-				'Ability to adapt to changing conditions and to learn from mistakes.',
-				'Self-reliance and self-discipline in pursuing a personal vision.'
+				'Healthy routines, active living, and responsible decision making.',
+				'Resilience, self-awareness, and emotional balance.',
+				'Self-discipline and perseverance in academics and activities.'
 			]
 		},
 		{
-			mainText: 'To deepen understanding of and commitment for social responsibility.',
+			mainText: 'Deepen commitment to service and community responsibility.',
 			subText: [
-				'Understanding the meaning of life in relation to human suffering and human solidarity.',
-				'Socially responsible behavior in the context of justice, fairness, and compassion for the poor and the weak.',
-				'Respect for the dignity of persons as shown in refinement in speech and actions.',
-				'Active leadership and participation in advocacy campaigns for the care and protection of the environment.'
+				'Participation in service projects and outreach opportunities.',
+				'Respect for others and care for the environment.',
+				'Positive leadership and contribution to school life.'
 			]
 		}
 	]

@@ -56,7 +56,7 @@
 </div>
 
 <!-- Academic programs and latest events -->
-<div class="relative bg-black">
+<div class="relative bg-navy">
 	<CurveWhiteTop />
 	<Programs events={data.events} />
 	<CurveWhiteBottom />
@@ -111,12 +111,12 @@
 				</div>
 				<div class="flex gap-4">
 					<a
-						class="hover:bg-accent z-30 rounded-full bg-black px-4 py-2 text-sm text-white transition-[transform,background-color] duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
+						class="hover:bg-accent z-30 rounded-full bg-navy px-4 py-2 text-sm text-white transition-[transform,background-color] duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
 						href="/admissions"
 						type="button">Admissions</a
 					>
 					<a
-						class="z-30 rounded-full border border-black px-4 py-2 text-sm text-black transition-transform duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
+						class="z-30 rounded-full border border-navy px-4 py-2 text-sm text-navy transition-transform duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
 						href="/contact"
 						type="button">Contact Us</a
 					>

@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import nodemailer, { type Transporter } from 'nodemailer';
 import { env } from '$env/dynamic/private';
 
 export type EmailPayload = {
@@ -8,7 +8,7 @@ export type EmailPayload = {
 	replyTo?: string;
 };
 
-let cachedTransport: nodemailer.Transporter | null = null;
+let cachedTransport: Transporter | null = null;
 
 function getTransport() {
 	if (cachedTransport) return cachedTransport;

@@ -1,18 +1,18 @@
 import { CACHE_DURATION } from '$lib/constants';
 import {
 	getAllEvents,
-	getGradeSchoolEvents,
-	getJuniorHighEvents,
-	getSeniorHighEvents
+	getFoundationPhaseEvents,
+	getIntermediatePhaseEvents,
+	getSeniorPhaseEvents
 } from '$lib/data/events';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ setHeaders }) => {
 	try {
 		const events = getAllEvents();
-		const gradeSchoolEvents = getGradeSchoolEvents();
-		const juniorHighEvents = getJuniorHighEvents();
-		const seniorHighEvents = getSeniorHighEvents();
+		const foundationPhaseEvents = getFoundationPhaseEvents();
+		const intermediatePhaseEvents = getIntermediatePhaseEvents();
+		const seniorPhaseEvents = getSeniorPhaseEvents();
 
 		// console.log('\nCONTENT IN CALENDAR: \n');
 		// console.log(events);
@@ -21,9 +21,9 @@ export const load: PageLoad = async ({ setHeaders }) => {
 
 		return {
 			events,
-			gradeSchoolEvents,
-			juniorHighEvents,
-			seniorHighEvents
+			foundationPhaseEvents,
+			intermediatePhaseEvents,
+			seniorPhaseEvents
 		};
 	} catch (err) {
 		throw new Error('Failed to fetch calendar events: ' + err);

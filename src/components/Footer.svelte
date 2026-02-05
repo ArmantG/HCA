@@ -6,7 +6,7 @@
 </script>
 
 <footer
-	class="border-t-accent w-full border-t-8 bg-black px-[5%] py-20 text-white [&>h2]:text-2xl [&>p]:text-neutral-300"
+	class="border-t-accent w-full border-t-8 bg-navy px-[5%] py-20 text-white [&>h2]:text-2xl [&>p]:text-neutral-300"
 >
 	<div class="flex flex-col-reverse lg:flex-row lg:gap-40">
 		<!-- HCA logo -->
@@ -98,7 +98,11 @@
 		</div>
 	</div>
 	<hr class="my-5 opacity-20" />
-	<div class="flex justify-center">
+	<div class="flex flex-col items-center gap-2">
+		<div class="flex gap-6 text-sm text-neutral-300">
+			<a class="transition-colors duration-300 hover:text-white" href="/privacy">Privacy</a>
+			<a class="transition-colors duration-300 hover:text-white" href="/contact">Contact</a>
+		</div>
 		<span class="mb-4 text-center"
 			>© {currentYear}. Harding Christian Academy. All Rights Reserved.</span
 		>

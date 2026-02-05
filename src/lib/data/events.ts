@@ -34,7 +34,7 @@ export const events: Event[] = [
 			description: 'Welcome back to a new term. Learners return for orientation and class start.',
 			date: '2026-01-14',
 			link: 'https://www.facebook.com/HardingChristianAcademy',
-			categories: ['grade_school', 'junior_high', 'senior_high']
+			categories: ['foundation_phase', 'intermediate_phase', 'senior_phase']
 		}
 	},
 	{
@@ -49,7 +49,7 @@ export const events: Event[] = [
 			description: 'Prospective families are invited to tour the campus and meet staff.',
 			date: '2026-02-06',
 			link: 'https://www.facebook.com/HardingChristianAcademy',
-			categories: ['grade_school', 'junior_high']
+			categories: ['foundation_phase', 'intermediate_phase']
 		}
 	},
 	{
@@ -64,7 +64,7 @@ export const events: Event[] = [
 			description: 'A day of team spirit, athletics, and community celebration.',
 			date: '2026-03-20',
 			link: 'https://www.facebook.com/HardingChristianAcademy',
-			categories: ['senior_high']
+			categories: ['senior_phase']
 		}
 	},
 	{
@@ -79,7 +79,7 @@ export const events: Event[] = [
 			description: 'Celebrating learner achievement across all grades.',
 			date: '2026-04-30',
 			link: 'https://www.facebook.com/HardingChristianAcademy',
-			categories: ['grade_school', 'junior_high', 'senior_high']
+			categories: ['foundation_phase', 'intermediate_phase', 'senior_phase']
 		}
 	}
 ];
@@ -108,22 +108,22 @@ export function getEventsByCategory(category: string): Event[] {
 }
 
 /**
- * Get Grade School events
+ * Get Foundation Phase events
  */
-export function getGradeSchoolEvents(): Event[] {
-	return getEventsByCategory('grade_school');
+export function getFoundationPhaseEvents(): Event[] {
+	return getEventsByCategory('foundation_phase');
 }
 
 /**
- * Get Junior High events
+ * Get Intermediate Phase events
  */
-export function getJuniorHighEvents(): Event[] {
-	return getEventsByCategory('junior_high');
+export function getIntermediatePhaseEvents(): Event[] {
+	return getEventsByCategory('intermediate_phase');
 }
 
 /**
- * Get Senior High events
+ * Get Senior Phase events
  */
-export function getSeniorHighEvents(): Event[] {
-	return getEventsByCategory('senior_high');
+export function getSeniorPhaseEvents(): Event[] {
+	return getEventsByCategory('senior_phase');
 }

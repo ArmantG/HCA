@@ -7,7 +7,7 @@
 		: 'https://www.hardingchristianacademy.co.za/admissions/apply';
 </script>
 
-<section class="relative h-screen min-h-[45rem] lg:min-h-[50rem]">
+<section class="relative h-screen min-h-180 lg:min-h-200">
 	<div class="absolute bottom-0 left-0 z-20 h-40 w-full bg-linear-to-t from-black/85"></div>
 	<video
 		src={video}

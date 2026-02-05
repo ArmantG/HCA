@@ -11,7 +11,7 @@
 	});
 </script>
 
-<div class={`fixed top-0 left-0 z-999 h-screen w-full transform-gpu bg-black ${style}`}>
+<div class={`fixed top-0 left-0 z-999 h-screen w-full transform-gpu bg-navy ${style}`}>
 	<div class="flex h-full items-center justify-center">
 		<!-- Circles -->
 		<div class="scale-75 md:scale-100">
@@ -24,7 +24,7 @@
 					<div
 						class="circle-3 flex h-57.5 w-57.5 transform-gpu items-center justify-center rounded-full border-2 border-[#af992b] opacity-0"
 					>
-						<!-- PCS logo candle + book -->
+						<!-- HCA logo placeholder -->
 						<img
 							draggable="false"
 							src={pcsLogoNewOutlineWhite}

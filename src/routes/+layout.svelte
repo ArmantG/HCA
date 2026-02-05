@@ -9,6 +9,10 @@
 
 	let loading = $state(true);
 	let display = $state('block');
+	const siteName = 'Harding Christian Academy';
+	const siteDescription =
+		'Harding Christian Academy offers Christ-centered education with academic excellence and character formation.';
+	const siteUrl = $derived(page.url.origin);
 
 	onMount(() => {
 		scrollTo(0, 0);
@@ -26,6 +30,13 @@
 </script>
 
 <svelte:head>
+	<title>{siteName}</title>
+	<meta name="description" content={siteDescription} />
+	<meta property="og:title" content={siteName} />
+	<meta property="og:description" content={siteDescription} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={siteUrl} />
+	<meta property="og:site_name" content={siteName} />
 	<meta name="view-transition" content="same-origin" />
 </svelte:head>
 
@@ -36,13 +47,13 @@
 />
 
 <Navbar />
-{#if page.url.pathname !== '/chat'}
+{#if page.url.pathname !== '/contact'}
 	<QuickMenu />
 {/if}
 
 <main class="flex min-h-screen flex-col justify-between">
 	{@render children()}
 </main>
-{#if page.url.pathname !== '/chat'}
+{#if page.url.pathname !== '/contact'}
 	<Footer />
 {/if}
