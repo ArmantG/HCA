@@ -14,8 +14,12 @@ const config = {
 	preprocess: [mdsvex(mdsvexConfig), vitePreprocess()],
 
 	kit: {
-		adapter: adapter({ runtime: 'edge' }),
-		inlineStyleThreshold: 5000
+		adapter: adapter(),
+		prerender: {
+			crawl: true,
+			handleHttpError: 'warn',
+			entries: ['*']
+		}
 	}
 };
 
