@@ -16,6 +16,7 @@
 			<a
 				class="flex py-1 pl-10 pr-1"
 				href={item.path}
+				data-nav-link="true"
 				onclick={() => {
 					showMobileDropdown.update(() => (show = false));
 					goto(item.path);

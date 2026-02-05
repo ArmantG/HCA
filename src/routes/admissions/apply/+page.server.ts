@@ -4,7 +4,7 @@ import { checkRateLimit } from '$lib/server/rate-limit'
 import type { Config } from '@sveltejs/adapter-vercel'
 import { fail } from '@sveltejs/kit'
 import { z } from 'zod'
-import type { Actions } from '../../../admissions/apply/$types'
+import type { Actions } from './$types'
 
 export const config: Config = {
 	runtime: 'nodejs20.x'

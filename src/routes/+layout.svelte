@@ -1,21 +1,32 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { resolveSeo, SITE_NAME } from '$lib/seo';
 	import { onMount } from 'svelte';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import '../app.css';
 	import { Footer, Loader, Navbar, Transition } from '../components';
 	import { QuickMenu } from '../features';
-	let { children } = $props();
+	import type { LayoutData } from './$types';
+
+	let { data, children } = $props<{ data: LayoutData; children: any }>();
 
 	let loading = $state(true);
 	let display = $state('block');
-	const siteName = 'Harding Christian Academy';
-	const siteDescription =
-		'Harding Christian Academy offers Christ-centered education with academic excellence and character formation.';
-	const siteUrl = $derived(page.url.origin);
+	const seo = $derived(resolveSeo(data?.seo, page.url.pathname));
 
 	onMount(() => {
 		scrollTo(0, 0);
+
+		const win = window as Window & { __hcaLoaderShown?: boolean };
+		const shouldShowLoader = !win.__hcaLoaderShown;
+
+		if (!shouldShowLoader) {
+			loading = false;
+			display = 'hidden';
+			return;
+		}
+
+		win.__hcaLoaderShown = true;
 
 		setTimeout(() => {
 			loading = false;
@@ -30,13 +41,22 @@
 </script>
 
 <svelte:head>
-	<title>{siteName}</title>
-	<meta name="description" content={siteDescription} />
-	<meta property="og:title" content={siteName} />
-	<meta property="og:description" content={siteDescription} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={siteUrl} />
-	<meta property="og:site_name" content={siteName} />
+	<title>{seo.title}</title>
+	<meta name="description" content={seo.description} />
+	<link rel="canonical" href={seo.canonical} />
+	<meta name="robots" content={seo.robots} />
+	<meta property="og:title" content={seo.title} />
+	<meta property="og:description" content={seo.description} />
+	<meta property="og:type" content={seo.ogType} />
+	<meta property="og:url" content={seo.canonical} />
+	<meta property="og:site_name" content={SITE_NAME} />
+	<meta property="og:image" content={seo.ogImage} />
+	<meta property="og:image:alt" content={`${SITE_NAME} logo`} />
+	<meta property="og:locale" content="en_ZA" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={seo.title} />
+	<meta name="twitter:description" content={seo.description} />
+	<meta name="twitter:image" content={seo.ogImage} />
 	<meta name="view-transition" content="same-origin" />
 </svelte:head>
 

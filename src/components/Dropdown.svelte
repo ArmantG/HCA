@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { dropdownItems } from '../constants';
 	let { drop, scrolled } = $props<{ drop: string; scrolled: boolean }>();
@@ -20,6 +21,11 @@
 				<a
 					href={item.path}
 					class="block px-6 py-3 text-base text-neutral-700 transition-colors duration-200 hover:bg-accent hover:bg-opacity-10 hover:text-accent"
+					data-nav-link="true"
+					onclick={(e) => {
+						e.preventDefault();
+						goto(item.path);
+					}}
 				>
 					{item.title}
 				</a>

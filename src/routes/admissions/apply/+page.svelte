@@ -19,9 +19,7 @@
 
 	<div class="grid gap-8 lg:grid-cols-[1.2fr,1fr]">
 		<div class="rounded-2xl border border-neutral-200 bg-white p-8">
-			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">
-				Before you apply
-			</h2>
+			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Before you apply</h2>
 			<div class="mt-6 space-y-4 text-sm text-neutral-700 sm:text-base">
 				<p class="font-semibold text-neutral-900">Please have the following information ready:</p>
 				<ul class="space-y-2">
@@ -33,7 +31,10 @@
 				</ul>
 				<div class="rounded-xl bg-neutral-50 px-4 py-3 text-sm text-neutral-600">
 					<p class="font-semibold text-neutral-900">Next steps</p>
-					<p class="mt-1">After submission, we will contact you within 2-3 business days to schedule an interview and discuss required documents.</p>
+					<p class="mt-1">
+						After submission, we will contact you within 2-3 business days to schedule an interview
+						and discuss required documents.
+					</p>
 				</div>
 				<div class="rounded-xl bg-accent/5 px-4 py-3 text-sm">
 					For fee information, contact us at <span class="font-semibold">072 248 6965</span>
@@ -42,9 +43,7 @@
 		</div>
 
 		<div class="rounded-2xl border border-neutral-200 bg-white p-8">
-			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">
-				Application form
-			</h2>
+			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Application form</h2>
 			{#if form?.success}
 				<div class="mt-6 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
 					Your application was sent successfully. Reference: {form.referenceId}
@@ -139,7 +138,9 @@
 								required
 							/>
 							{#if form?.errors?.learnerFirstName}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.learnerFirstName[0]}</span>
+								<span class="mt-1 block text-xs text-red-600"
+									>{form.errors.learnerFirstName[0]}</span
+								>
 							{/if}
 						</label>
 						<label class="text-sm text-neutral-700">
@@ -151,7 +152,8 @@
 								required
 							/>
 							{#if form?.errors?.learnerLastName}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.learnerLastName[0]}</span>
+								<span class="mt-1 block text-xs text-red-600">{form.errors.learnerLastName[0]}</span
+								>
 							{/if}
 						</label>
 					</div>
@@ -275,10 +277,11 @@
 					<label class="text-sm text-neutral-700">
 						Does the learner have any medical conditions or special needs we should know about?
 						<textarea
-							class="mt-2 min-h-[80px] w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
+							class="mt-2 min-h-20 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
 							name="medicalInfo"
 							placeholder="Please provide details or enter 'None'"
-						>{form?.values?.medicalInfo ?? ''}</textarea>
+							>{form?.values?.medicalInfo ?? ''}</textarea
+						>
 						{#if form?.errors?.medicalInfo}
 							<span class="mt-1 block text-xs text-red-600">{form.errors.medicalInfo[0]}</span>
 						{/if}
@@ -305,10 +308,11 @@
 					<label class="text-sm text-neutral-700">
 						Additional comments or questions (optional)
 						<textarea
-							class="mt-2 min-h-[100px] w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
+							class="mt-2 min-h-25 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
 							name="message"
 							placeholder="Any additional information you'd like us to know..."
-						>{form?.values?.message ?? ''}</textarea>
+							>{form?.values?.message ?? ''}</textarea
+						>
 					</label>
 				</div>
 				<label class="flex items-start gap-3 text-sm text-neutral-700">

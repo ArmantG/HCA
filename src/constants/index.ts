@@ -32,15 +32,15 @@ export const navItems = [
 		drop: false,
 	},
 	{
-		title: 'Contact',
-		path: '/contact',
-		data: 'contact',
-		drop: false,
-	},
-	{
 		title: 'News',
 		path: '/news',
 		data: 'news',
+		drop: false,
+	},
+	{
+		title: 'Contact',
+		path: '/contact',
+		data: 'contact',
 		drop: false,
 	}
 ]
@@ -301,157 +301,3 @@ export const services = [
 		text: 'Clean, accessible restrooms for learners, staff, and visitors.'
 	}
 ]
-
-export const paascu = [
-	{
-		title: 'About PAASCU',
-		text: [
-			'PAASCU stands for Philippine Accrediting Association of Schools, Colleges, and Universities. It is a private, voluntary, non-profit and non- stock corporation which was registered with the Securities and Exchange Commission on November 5, 1957.',
-			'PAASCU is a service organization that accredits academic programs which meet standards of quality education. In November 1967, the Bureau of Education and Culture (now the Department of Education) officially recognized PAASCU and endorsed its work as an accrediting agency. PAASCU is also one of the three founding members of the Federation of Accrediting Agencies of the Philippines (FAAP), which was established in 1977 and is authorized by the Commission on Higher Education (CHED) to certify the levels of accredited programs for the purpose of granting progressive deregulation and other benefits.',
-			'PAASCU has been a full member of the International Network for Quality Assurance Agencies in Higher Education (INQAAHE). As of 2005, INQAAHE is composed of 150 accrediting agencies coming from over 60 different countries. These agencies have also created regional networks, one of which is the Asia-PAcific Quality Network (APQN), with PAASCU being one of its active members.',
-			'PAASCU also has linkages with the Council for Higher Education Accreditation (CHEA), which is a private, nonprofit national organization that coordinates accreditation activity in the United States, as well as with the National Committee on Foreign Medical Education and Accreditation (NCFMEA), which is based in Washington, D.C.'
-		]
-	},
-	{
-		title: "What are PAASCU'S standards?",
-		text: [
-			"The Association does not impose arbitrary standards. The survey forms developed by PAASCU identify principles and practices which are found in excellent institutions. The statements in the survey forms are more qualitative rather than quantitative. The Association does not have specific formulas to apply or particular patterns of organization to follow. The criteria and survey instruments are merely tools to help the school measure educational quality. They are intended to serve as a guide for institutions as they strive for excellence and for accreditors as they assess institutional achievement.  The standards reflect a realistic appraisal of the school's resources and their efficient utilization to help the institution achieve its goals."
-		]
-	},
-	{
-		title: 'Benefits and Incentives',
-		text: [
-			'Full administrative deregulation, provided that reports of promotion of students and lists of graduates are available for review by CHED at all times.',
-			'Financial deregulation in terms of setting tuition and other school fees and charges.',
-			'Authority to revise the curriculum without CHED approval provided that CHED and Professional Regulation Commission minimum requirements and guidelines, where applicable, are complied with and the revised curriculum is submitted to CHED Regional Offices.',
-			'Authority to graduate students from accredited courses or programs of study in the levels accredited without prior approval of the CHED and without need for Special Orders.',
-			`Priority in the awards of grants/subsidies or funding assistance from CHED Higher Education Development Fund (HEDF) for scholarships and faculty development, facilities improvement and other development programs. Right to use on its publications or advertisements the word "ACCREDITED" pursuant to CHED policies and rules.`,
-			'Limited visitation, inspection and/or supervision by CHED supervisory personnel or representatives.'
-		]
-	},
-	{
-		title: 'Other advantages',
-		text: [
-			'Gives the institution and its faculty a sense of direction based on a clearer self-image.',
-			'Facilitates transfer of students.',
-			'Provides guidance for parents and students in the choice of worthy schools.',
-			'Gives prestige for member schools, justified by the possession of quality standards and the continuing effort to maintain them at a high level.'
-		]
-	}
-]
-
-export const gradeSchool = {
-	title: 'The Grade School Department Objectives:',
-	content: [
-		{
-			mainText: 'Build strong foundations in literacy, numeracy, and learning habits.',
-			subText: [
-				'Reading fluency, comprehension, and clear communication.',
-				'Number sense and problem solving through practice and play.',
-				'Curiosity and confidence in asking questions and exploring new ideas.'
-			]
-		},
-		{
-			mainText: 'Develop character and faith-filled habits.',
-			subText: [
-				'Respect, kindness, and responsibility in daily interactions.',
-				'Participation in prayer, worship, and community service.',
-				'Habits of honesty, gratitude, and self-control.'
-			]
-		},
-		{
-			mainText: 'Promote healthy growth and safe routines.',
-			subText: [
-				'Good hygiene, healthy food choices, and active play.',
-				'Social-emotional skills for confidence and resilience.',
-				'A safe, caring classroom culture.'
-			]
-		},
-		{
-			mainText: 'Encourage service and community involvement.',
-			subText: [
-				'Helping others through age-appropriate service projects.',
-				'Care for school property and the environment.',
-				'Appreciation for family, community, and country.'
-			]
-		}
-	]
-}
-
-export const juniorHigh = {
-	title: 'High School education aims to develop its students in the following aspects:',
-	content: [
-		{
-			mainText: 'Strengthen character and values that guide daily life.',
-			subText: [
-				'Respectful communication and teamwork with peers and staff.',
-				'Integrity, honesty, and responsibility in choices.',
-				'Participation in chapel, service, and community life.'
-			]
-		},
-		{
-			mainText:
-				'Promote lifelong learning through self-discovery, expression, and creativity.',
-			subText: [
-				'Effective study habits, research skills, and critical thinking.',
-				'Clear communication in writing and speaking.',
-				'Exploration of talents and emerging interests.'
-			]
-		},
-		{
-			mainText: 'Promote healthy growth and personal discipline.',
-			subText: [
-				'Healthy routines, active living, and responsible decision making.',
-				'Resilience, self-awareness, and emotional balance.',
-				'Self-discipline and perseverance in academics and activities.'
-			]
-		},
-		{
-			mainText: 'Deepen commitment to service and community responsibility.',
-			subText: [
-				'Participation in service projects and outreach opportunities.',
-				'Respect for others and care for the environment.',
-				'Positive leadership and contribution to school life.'
-			]
-		}
-	]
-}
-
-export const seniorHigh = {
-	title: 'High School education aims to develop its students in the following aspects:',
-	content: [
-		{
-			mainText: 'Strengthen character and values that guide daily life.',
-			subText: [
-				'Respectful communication and teamwork with peers and staff.',
-				'Integrity, honesty, and responsibility in choices.',
-				'Participation in chapel, service, and community life.'
-			]
-		},
-		{
-			mainText:
-				'Promote lifelong learning through self-discovery, expression, and creativity.',
-			subText: [
-				'Advanced study habits, research skills, and critical thinking.',
-				'Clear communication for academic and career readiness.',
-				'Exploration of talents and informed pathway choices.'
-			]
-		},
-		{
-			mainText: 'Promote healthy growth and personal discipline.',
-			subText: [
-				'Healthy routines, active living, and responsible decision making.',
-				'Resilience, self-awareness, and emotional balance.',
-				'Self-discipline and perseverance in academics and activities.'
-			]
-		},
-		{
-			mainText: 'Deepen commitment to service and community responsibility.',
-			subText: [
-				'Participation in service projects and outreach opportunities.',
-				'Respect for others and care for the environment.',
-				'Positive leadership and contribution to school life.'
-			]
-		}
-	]
-}

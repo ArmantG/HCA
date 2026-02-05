@@ -8,7 +8,7 @@
 		kinaadman,
 		kinaadman2,
 		kinaadman3
-	} from '../../assets/images';
+	} from '../../../assets/images';
 
 	const images = [
 		{ src: pcsAnnex, alt: 'Campus view' },

@@ -15,7 +15,10 @@
 	}
 </script>
 
-<div class="border-b-accent -z-10 h-full w-full border-b-4 bg-navy bg-opacity-95 pb-4">
+<div
+	class="border-b-accent -z-10 h-full w-full border-b-4 bg-navy bg-opacity-95 pb-4"
+	data-mobile-nav="true"
+>
 	<ul class="flex flex-col">
 		{#each navItems as item, idx (idx)}
 			{#if item.data === 'about' || item.data === 'academics'}
@@ -47,6 +50,7 @@
 						class="flex h-full w-full p-4 text-white"
 						href={item.path}
 						data-nav={item.data}
+						data-nav-link="true"
 						onclick={() => {
 							showMobileDropdown.update(() => (show = false));
 							goto(item.path);
