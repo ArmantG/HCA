@@ -14,8 +14,47 @@
 	let display = $state('block');
 	const seo = $derived(resolveSeo(data?.seo, page.url.pathname));
 
+	const MIN_LOADER_MS = 2000;
+	const LOADER_EXIT_MS = 700;
+	const HERO_VIDEO_READY_EVENT = 'hca:hero-video-ready';
+	const HERO_VIDEO_MAX_WAIT_MS = 15000;
+
+	function wait(ms: number): Promise<void> {
+		return new Promise((resolve) => {
+			setTimeout(resolve, ms);
+		});
+	}
+
+	function waitForHeroVideo(pathname: string): Promise<void> {
+		if (pathname !== '/') {
+			return Promise.resolve();
+		}
+
+		const win = window as Window & { __hcaHeroVideoReady?: boolean };
+		if (win.__hcaHeroVideoReady) {
+			return Promise.resolve();
+		}
+
+		return new Promise((resolve) => {
+			let timeoutId = 0;
+
+			const finish = () => {
+				window.removeEventListener(HERO_VIDEO_READY_EVENT, onVideoReady);
+				window.clearTimeout(timeoutId);
+				resolve();
+			};
+
+			const onVideoReady = () => {
+				finish();
+			};
+
+			window.addEventListener(HERO_VIDEO_READY_EVENT, onVideoReady, { once: true });
+			timeoutId = window.setTimeout(finish, HERO_VIDEO_MAX_WAIT_MS);
+		});
+	}
+
 	onMount(() => {
-		scrollTo(0, 0);
+		window.scrollTo(0, 0);
 
 		const win = window as Window & { __hcaLoaderShown?: boolean };
 		const shouldShowLoader = !win.__hcaLoaderShown;
@@ -28,13 +67,14 @@
 
 		win.__hcaLoaderShown = true;
 
-		setTimeout(() => {
+		const hideLoader = async () => {
+			await Promise.all([wait(MIN_LOADER_MS), waitForHeroVideo(page.url.pathname)]);
 			loading = false;
-		}, 800);
-
-		setTimeout(() => {
+			await wait(LOADER_EXIT_MS);
 			display = 'hidden';
-		}, 2000);
+		};
+
+		void hideLoader();
 	});
 
 	setupViewTransition();

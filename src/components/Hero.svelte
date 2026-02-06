@@ -3,23 +3,54 @@
 	import { onMount } from 'svelte';
 	import video from '../assets/videos/video.mp4';
 
+	const HERO_VIDEO_READY_EVENT = 'hca:hero-video-ready';
+
+	let videoElement = $state<HTMLVideoElement | null>(null);
+
 	let url = dev
 		? 'http://localhost:5174/admissions/apply'
 		: 'https://www.hardingchristianacademy.co.za/admissions/apply';
 
-	onMount(() => {
-		const videoElement = document.querySelector('#myVideo') as HTMLVideoElement | null;
-		if (videoElement) {
-			videoElement.playbackRate = 0.75;
+	function notifyVideoReady() {
+		const win = window as Window & { __hcaHeroVideoReady?: boolean };
+		if (win.__hcaHeroVideoReady) {
+			return;
 		}
+
+		win.__hcaHeroVideoReady = true;
+		window.dispatchEvent(new Event(HERO_VIDEO_READY_EVENT));
+	}
+
+	onMount(() => {
+		if (!videoElement) {
+			return;
+		}
+
+		videoElement.playbackRate = 0.75;
+
+		const handleCanPlay = () => notifyVideoReady();
+		const handleError = () => notifyVideoReady();
+
+		videoElement.addEventListener('canplay', handleCanPlay, { once: true });
+		videoElement.addEventListener('error', handleError, { once: true });
+
+		if (videoElement.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+			notifyVideoReady();
+		}
+
+		return () => {
+			videoElement?.removeEventListener('canplay', handleCanPlay);
+			videoElement?.removeEventListener('error', handleError);
+		};
 	});
 </script>
 
 <section class="relative h-screen min-h-180 lg:min-h-200">
 	<div class="absolute bottom-0 left-0 z-20 h-40 w-full bg-linear-to-t from-black/85"></div>
 	<video
-		id="myVideo"
+		bind:this={videoElement}
 		src={video}
+		preload="auto"
 		autoplay
 		loop
 		muted
