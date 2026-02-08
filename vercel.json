@@ -1,0 +1,22 @@
+{
+  "headers": [
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://hca-one.vercel.app/"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ],
+      "source": "/(.*)"
+    }
+  ],
+  "trailingSlash": false
+}

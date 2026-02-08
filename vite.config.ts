@@ -43,11 +43,9 @@ export default defineConfig({
 		alias: {
 			$assets: path.resolve("./src/assets/"),
 			$content: path.resolve("./content/"),
-			$utils: path.resolve("./src/utils/"),
 			$lib: path.resolve("./src/lib/"),
 			$styles: path.resolve("./src/styles/"),
-			$getContent: path.resolve("./src/lib/getContent/"),
-			$components: path.resolve("./src/lib/components/")
+			$components: path.resolve("./src/components/")
 		}
 	},
 

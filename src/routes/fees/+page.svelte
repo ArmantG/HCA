@@ -95,12 +95,11 @@
 			</div>
 			<div>
 				<span class="font-semibold text-neutral-600">Reference:</span>
-				<p class="text-neutral-900">Learner ref + name (e.g., H1999Andrew)</p>
+				<p class="text-neutral-900">Learner Acc number + name (e.g., HA26777 - Siyambonga)</p>
 			</div>
 		</div>
 		<p class="mt-4 text-xs text-neutral-600">
-			EFT or direct deposit preferred. No cash accepted. Correct reference is essential for
-			allocation.
+			EFT or direct deposit preferred. Correct reference is essential for payment allocation.
 		</p>
 	</div>
 

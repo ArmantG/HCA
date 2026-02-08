@@ -13,7 +13,7 @@ export const config: Config = {
 const schema = z.object({
 	parentName: z.string().min(2, 'Parent or guardian name is required'),
 	parentPhone: z.string().min(7, 'Phone is required'),
-	parentEmail: z.string().email('Valid email is required'),
+	parentEmail: z.email('Valid email is required'),
 	relationship: z.string().min(1, 'Relationship is required'),
 	learnerFirstName: z.string().min(2, 'Learner first name is required'),
 	learnerLastName: z.string().min(2, 'Learner last name is required'),

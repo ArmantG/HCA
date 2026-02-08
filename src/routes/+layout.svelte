@@ -7,6 +7,7 @@
 	import { Footer, Loader, Navbar, Transition } from '../components';
 	import { QuickMenu } from '../features';
 	import type { LayoutData } from './$types';
+	import { Toasts } from 'svoast';
 
 	let { data, children } = $props<{ data: LayoutData; children: any }>();
 
@@ -117,3 +118,4 @@
 {#if page.url.pathname !== '/contact'}
 	<Footer />
 {/if}
+<Toasts position="top-right" />

@@ -163,6 +163,29 @@
 	--animate-expand2: expand2 0.5s forwards;
 }
 
+:root {
+	--svoast-offset: 16px;
+	--svoast-gap: 16px;
+	--svoast-bg: lch(21.25 0.01 277.8);
+	--svoast-text: lch(100 0.03 277.8);
+	--svoast-padding: 10px 15px 10px 18px;
+	--svoast-radius: 7px;
+	--svoast-shadow: 0 3px 9px lch(0 0 0 / 0.3);
+	--svoast-font-size: 15px;
+	--svoast-dismiss-gap: 8px;
+	--svoast-max-width: unset;
+	--svoast-colour: var(--primary);
+	--svoast-info-colour: lch(100 0.03 277.8);
+	--svoast-attention-colour: lch(67.19 48.97 262.25);
+	--svoast-success-colour: lch(65.49 39.45 190.13);
+	--svoast-warning-colour: oklch(0.72 0.13 73.61);
+	--svoast-error-colour: lch(46.85 76.28 38.68);
+	--svoast-bar-width: 3px;
+	--svoast-icon-padding: 2px;
+	--tooltip-white-space-hidden: nowrap;
+	--tooltip-white-space-shown: normal;
+}
+
 @keyframes float {
 	0% {
 		transform: translateY(0);
