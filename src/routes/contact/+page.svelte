@@ -334,7 +334,7 @@
 						>
 							{faq.question}
 						</div>
-						<div class="flex h-full flex-shrink-0 items-center">
+						<div class="flex h-full shrink-0 items-center">
 							<Plus
 								style={`h-10 w-10 sm:h-12 sm:w-12 text-accent transition-transform duration-300 ${
 									faq.show ? 'rotate-[135deg] scale-75' : 'rotate-0 scale-100'
