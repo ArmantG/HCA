@@ -1,52 +1,55 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
-	import { onMount } from 'svelte';
-	import video from '../assets/videos/video.mp4';
+	import { onMount } from 'svelte'
+	import video from '../assets/videos/video.mp4'
 
-	const HERO_VIDEO_READY_EVENT = 'hca:hero-video-ready';
+	const HERO_VIDEO_READY_EVENT = 'hca:hero-video-ready'
 
-	let videoElement = $state<HTMLVideoElement | null>(null);
-
-	let url = dev
-		? 'http://localhost:5174/admissions/apply'
-		: 'https://www.hardingchristianacademy.co.za/admissions/apply';
+	let videoElement = $state<HTMLVideoElement | null>(null)
+	let videoLoaded = $state(false)
 
 	function notifyVideoReady() {
-		const win = window as Window & { __hcaHeroVideoReady?: boolean };
+		videoLoaded = true
+		const win = window as Window & { __hcaHeroVideoReady?: boolean }
 		if (win.__hcaHeroVideoReady) {
-			return;
+			return
 		}
 
-		win.__hcaHeroVideoReady = true;
-		window.dispatchEvent(new Event(HERO_VIDEO_READY_EVENT));
+		win.__hcaHeroVideoReady = true
+		window.dispatchEvent(new Event(HERO_VIDEO_READY_EVENT))
 	}
 
 	onMount(() => {
 		if (!videoElement) {
-			return;
+			return
 		}
 
-		videoElement.playbackRate = 0.75;
+		videoElement.playbackRate = 0.75
 
-		const handleCanPlay = () => notifyVideoReady();
-		const handleError = () => notifyVideoReady();
+		const handleCanPlay = () => notifyVideoReady()
+		const handleError = () => notifyVideoReady()
 
-		videoElement.addEventListener('canplay', handleCanPlay, { once: true });
-		videoElement.addEventListener('error', handleError, { once: true });
+		videoElement.addEventListener('canplay', handleCanPlay, { once: true })
+		videoElement.addEventListener('error', handleError, { once: true })
 
 		if (videoElement.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-			notifyVideoReady();
+			notifyVideoReady()
 		}
 
 		return () => {
-			videoElement?.removeEventListener('canplay', handleCanPlay);
-			videoElement?.removeEventListener('error', handleError);
-		};
-	});
+			videoElement?.removeEventListener('canplay', handleCanPlay)
+			videoElement?.removeEventListener('error', handleError)
+		}
+	})
 </script>
 
 <section class="relative h-screen min-h-180 lg:min-h-200">
 	<div class="absolute bottom-0 left-0 z-20 h-40 w-full bg-linear-to-t from-black/85"></div>
+
+	<!-- Loading placeholder -->
+	{#if !videoLoaded}
+		<div class="absolute inset-0 -z-10 bg-navy" aria-hidden="true"></div>
+	{/if}
+
 	<video
 		bind:this={videoElement}
 		src={video}
@@ -68,8 +71,7 @@
 			<div class="z-30 flex gap-4">
 				<a
 					class="bg-linear-to-r from-amber-500 to-accent z-30 rounded-full py-2 px-4 text-sm text-white transition-[transform,filter] duration-300 hover:scale-90 hover:brightness-90 md:py-3 md:px-5 md:text-xl"
-					href={url}
-					target="_self"
+					href="/admissions/apply"
 					type="button">Apply Now</a
 				>
 			</div>

@@ -7,11 +7,11 @@ When in doubt: prefer official Svelte/SvelteKit docs and MDN over blog posts.
 
 ## 0) Goals (what “good” looks like)
 
-1) Correctness & security  
-2) Maintainability & readability  
-3) Accessibility (semantic HTML first; ARIA only when needed)  
-4) Performance & DX  
-5) Cleverness (only if it helps 1–4)
+1. Correctness & security
+2. Maintainability & readability
+3. Accessibility (semantic HTML first; ARIA only when needed)
+4. Performance & DX
+5. Cleverness (only if it helps 1–4)
 
 ---
 
@@ -128,9 +128,9 @@ Never access `window`, `document`, `localStorage` during SSR.
 Guard client-only code with:
 
 ```ts
-import { browser } from '$app/environment';
+import { browser } from '$app/environment'
 if (browser) {
-  /* client-only */
+	/* client-only */
 }
 ```
 

@@ -4,21 +4,21 @@
  */
 
 export interface EventContent {
-	title: string;
-	description: string;
-	date: string;
-	link: string;
-	categories: string[];
+	title: string
+	description: string
+	date: string
+	link: string
+	categories: string[]
 }
 
 export interface Event {
-	id: string;
-	name: string;
-	slug: string;
-	full_slug: string;
-	created_at: string;
-	published_at: string;
-	content: EventContent;
+	id: string
+	name: string
+	slug: string
+	full_slug: string
+	created_at: string
+	published_at: string
+	content: EventContent
 }
 
 export const events: Event[] = [
@@ -82,13 +82,13 @@ export const events: Event[] = [
 			categories: ['foundation_phase', 'intermediate_phase', 'senior_phase']
 		}
 	}
-];
+]
 
 /**
  * Get all events
  */
 export function getAllEvents(): Event[] {
-	return events;
+	return events
 }
 
 /**
@@ -97,33 +97,33 @@ export function getAllEvents(): Event[] {
 export function getLatestEvents(count: number = 3): Event[] {
 	return events
 		.sort((a, b) => new Date(b.content.date).getTime() - new Date(a.content.date).getTime())
-		.slice(0, count);
+		.slice(0, count)
 }
 
 /**
  * Get events by category
  */
 export function getEventsByCategory(category: string): Event[] {
-	return events.filter((event) => event.content.categories.includes(category));
+	return events.filter((event) => event.content.categories.includes(category))
 }
 
 /**
  * Get Foundation Phase events
  */
 export function getFoundationPhaseEvents(): Event[] {
-	return getEventsByCategory('foundation_phase');
+	return getEventsByCategory('foundation_phase')
 }
 
 /**
  * Get Intermediate Phase events
  */
 export function getIntermediatePhaseEvents(): Event[] {
-	return getEventsByCategory('intermediate_phase');
+	return getEventsByCategory('intermediate_phase')
 }
 
 /**
  * Get Senior Phase events
  */
 export function getSeniorPhaseEvents(): Event[] {
-	return getEventsByCategory('senior_phase');
+	return getEventsByCategory('senior_phase')
 }

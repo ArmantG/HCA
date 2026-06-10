@@ -143,11 +143,3 @@ function formatDateProperly(date) {
 //         })
 //     }
 // }
-
-// ...existing code...
-
-function getAttr(str, elem, attr) {
-	const regex = new RegExp(`<${elem}[^>]*?${attr}=(["\\'])?((?:.(?!\\1|>))*.?)\\1?`, 'ig')
-	const res = regex.exec(str)
-	return res && res[2] ? res[2] : null
-}

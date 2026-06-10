@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Email, Facebook, Location, Telephone } from '../assets/icons';
-	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '../assets/images';
+	import { Email, Facebook, Location, Telephone } from '../assets/icons'
+	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '../assets/images'
 
-	const currentYear = new Date().getFullYear();
+	const currentYear = new Date().getFullYear()
 </script>
 
 <footer

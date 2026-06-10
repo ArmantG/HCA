@@ -11,40 +11,40 @@
 		parse,
 		startOfToday,
 		startOfWeek
-	} from 'date-fns';
-	import { ChevronLeft, ChevronRight } from '../assets/icons';
+	} from 'date-fns'
+	import { ChevronLeft, ChevronRight } from '../assets/icons'
 
-	let { events = [] } = $props<{ events?: any[] }>();
+	let { events = [] } = $props<{ events?: any[] }>()
 
-	let today = startOfToday();
-	let currentMonth = format(today, 'MMM-yyyy');
-	let firstDayCurrentMonth = $state(parse(currentMonth, 'MMM-yyyy', new Date()));
+	let today = startOfToday()
+	let currentMonth = format(today, 'MMM-yyyy')
+	let firstDayCurrentMonth = $state(parse(currentMonth, 'MMM-yyyy', new Date()))
 
 	const days = $derived(
 		eachDayOfInterval({
 			start: startOfWeek(firstDayCurrentMonth),
 			end: endOfWeek(endOfMonth(firstDayCurrentMonth))
 		})
-	);
+	)
 
 	function navigateMonth(direction: number) {
-		const firstDayNextMonth = add(firstDayCurrentMonth, { months: direction });
-		const currentMonth = format(firstDayNextMonth, 'MMM-yyyy');
-		firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
+		const firstDayNextMonth = add(firstDayCurrentMonth, { months: direction })
+		const currentMonth = format(firstDayNextMonth, 'MMM-yyyy')
+		firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 	}
 
 	// Get dates in between the start and end of an event
 	function getDates(startDate: string, endDate: string) {
-		const dates = [];
-		let currentDate = new Date(startDate);
-		let end = new Date(endDate);
+		const dates = []
+		let currentDate = new Date(startDate)
+		let end = new Date(endDate)
 
 		while (currentDate <= end) {
-			dates.push(format(new Date(currentDate), 'yyyy-MM-dd'));
-			currentDate.setDate(currentDate.getDate() + 1);
+			dates.push(format(new Date(currentDate), 'yyyy-MM-dd'))
+			currentDate.setDate(currentDate.getDate() + 1)
 		}
 
-		return dates;
+		return dates
 	}
 
 	// Normalize and Sort events based on the difference between the start and end
@@ -59,35 +59,35 @@
 				}
 			}))
 			.sort((a: any, b: any) => {
-				const aDiff = new Date(a.content.end).getTime() - new Date(a.content.start).getTime();
-				const bDiff = new Date(b.content.end).getTime() - new Date(b.content.start).getTime();
-				return bDiff - aDiff;
+				const aDiff = new Date(a.content.end).getTime() - new Date(a.content.start).getTime()
+				const bDiff = new Date(b.content.end).getTime() - new Date(b.content.start).getTime()
+				return bDiff - aDiff
 			})
-	);
+	)
 
 	// Group the sorted events by date
-	let eventsByDate = $state(new Map<string, any[]>());
+	let eventsByDate = $state(new Map<string, any[]>())
 
 	$effect(() => {
-		const map = new Map<string, any[]>();
+		const map = new Map<string, any[]>()
 		processedEvents.forEach((event: any) => {
-			if (!event.content.start || !event.content.end) return;
-			const dates = getDates(event.content.start, event.content.end);
+			if (!event.content.start || !event.content.end) return
+			const dates = getDates(event.content.start, event.content.end)
 			dates.forEach((date) => {
 				if (!map.has(date)) {
-					map.set(date, []);
+					map.set(date, [])
 				}
-				map.get(date)?.push(event);
-			});
-		});
-		eventsByDate = map;
-	});
+				map.get(date)?.push(event)
+			})
+		})
+		eventsByDate = map
+	})
 
-	let clickedDay = $state(today);
-	let clickedDayFormat = $state(format(today, 'yyyy-MM-dd'));
+	let clickedDay = $state(today)
+	let clickedDayFormat = $state(format(today, 'yyyy-MM-dd'))
 
 	function handleDateClick(date: string) {
-		return eventsByDate.get(date);
+		return eventsByDate.get(date)
 	}
 
 	const colStartClasses = [
@@ -98,7 +98,7 @@
 		'col-start-5',
 		'col-start-6',
 		'col-start-7'
-	];
+	]
 </script>
 
 <!-- The actual calendar -->
@@ -146,8 +146,8 @@
 							dayIdx === 0 && colStartClasses[getDay(day)]
 						} `}
 						onclick={() => {
-							clickedDay = day;
-							clickedDayFormat = format(day, 'yyyy-MM-dd');
+							clickedDay = day
+							clickedDayFormat = format(day, 'yyyy-MM-dd')
 						}}
 					>
 						<div class="flex h-full flex-col items-center lg:items-start">
@@ -184,8 +184,8 @@
 							dayIdx === 0 && colStartClasses[getDay(day)]
 						} `}
 						onclick={() => {
-							clickedDay = day;
-							clickedDayFormat = format(day, 'yyyy-MM-dd');
+							clickedDay = day
+							clickedDayFormat = format(day, 'yyyy-MM-dd')
 						}}
 					>
 						<div class="flex h-full flex-col items-center lg:items-start">

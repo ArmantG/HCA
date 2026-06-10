@@ -3,10 +3,10 @@
 </div> -->
 
 <script lang="ts">
-	import { format } from 'date-fns';
-	import { Calendar } from '../../features';
+	import { format } from 'date-fns'
+	import { Calendar } from '../../features'
 
-	const today = format(new Date(), 'yyyy-MM-dd');
+	const today = format(new Date(), 'yyyy-MM-dd')
 
 	let errorEvents = [
 		{
@@ -20,7 +20,7 @@
 				categories: []
 			}
 		}
-	];
+	]
 </script>
 
 <div class="bg-white">

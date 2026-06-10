@@ -4,6 +4,7 @@ This file records the important “why” behind technical choices in this repo.
 Keep entries short, factual, and easy to scan. Prefer stable, well-documented conventions.
 
 **Rules**
+
 - One decision per section.
 - Write decisions as if a new teammate will read them 6 months later.
 - Include links to relevant docs/issues/PRs.
@@ -15,6 +16,7 @@ Keep entries short, factual, and easy to scan. Prefer stable, well-documented co
 ## Template (copy this block for each decision)
 
 ### ADR-YYYY-MM-DD-###: <Decision title>
+
 **Status:** Proposed | Accepted | Deprecated | Superseded  
 **Date:** YYYY-MM-DD  
 **Owners:** @name(s)  
@@ -27,7 +29,8 @@ What did we choose? Be concrete (tools, patterns, folder paths, conventions).
 **Rationale:**  
 Why this choice? What trade-offs are we accepting?
 
-**Alternatives considered:**  
+**Alternatives considered:**
+
 - Option A — why not
 - Option B — why not
 
@@ -37,7 +40,8 @@ What changes because of this? What do we need to be careful about?
 **Implementation notes:**  
 Key files/paths, migration steps, commands, guardrails.
 
-**Links:**  
+**Links:**
+
 - Issue/PR:
 - Docs:
 - Notes:
@@ -47,6 +51,7 @@ Key files/paths, migration steps, commands, guardrails.
 ## Decisions
 
 ### ADR-YYYY-MM-DD-001: Stack baseline — SvelteKit 2 + Svelte 5 (Runes)
+
 **Status:** Accepted  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -56,11 +61,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-002: Styling — Tailwind CSS
+
 **Status:** Accepted  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -70,11 +76,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-003: Data — Xata as DB provider (Postgres platform)
+
 **Status:** Accepted  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -84,11 +91,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-004: Mutations — SvelteKit form actions + progressive enhancement
+
 **Status:** Accepted  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -98,11 +106,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-005: Validation — Zod server-side for all untrusted input
+
 **Status:** Accepted  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -112,11 +121,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-006: Deployment — <adapter-name> (e.g., adapter-node / adapter-vercel)
+
 **Status:** Proposed  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -126,11 +136,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-007: Auth strategy — <sessions/cookies or provider>
+
 **Status:** Proposed  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -140,11 +151,12 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 
 ### ADR-YYYY-MM-DD-008: Observability — logging + error tracking
+
 **Status:** Proposed  
 **Date:** YYYY-MM-DD  
 **Owners:**  
@@ -154,7 +166,7 @@ Key files/paths, migration steps, commands, guardrails.
 **Alternatives considered:**  
 **Consequences:**  
 **Implementation notes:**  
-**Links:**  
+**Links:**
 
 ---
 

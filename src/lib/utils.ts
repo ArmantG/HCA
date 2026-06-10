@@ -1,6 +1,6 @@
-import { clsx } from "clsx"
-import { slug } from "github-slugger"
-import { twMerge } from "tailwind-merge"
+import { clsx } from 'clsx'
+import { slug } from 'github-slugger'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: (string | undefined | null | false)[]): string {
 	return twMerge(clsx(inputs))
@@ -23,7 +23,7 @@ export const copyToClipboard = async (text: string) => {
 }
 
 export function getFromSessionStorage(key: string) {
-	if (typeof sessionStorage !== "undefined") {
+	if (typeof sessionStorage !== 'undefined') {
 		return sessionStorage.getItem(key)
 	}
 
@@ -31,7 +31,7 @@ export function getFromSessionStorage(key: string) {
 }
 
 export function getFromLocalStorage(key: string) {
-	if (typeof localStorage !== "undefined") {
+	if (typeof localStorage !== 'undefined') {
 		return localStorage.getItem(key)
 	}
 
@@ -41,16 +41,16 @@ export function getFromLocalStorage(key: string) {
 export function slugify(str: string) {
 	return str
 		.toLowerCase()
-		.replace(/[^a-z0-9 -]/g, "")
-		.replace(/\s+/g, "-")
-		.replace(/-+/g, "-")
+		.replace(/[^a-z0-9 -]/g, '')
+		.replace(/\s+/g, '-')
+		.replace(/-+/g, '-')
 }
 
 export function unSlugify(str: string) {
 	return str
-		.replace(/-/g, " ")
+		.replace(/-/g, ' ')
 		.replace(
 			/\w\S*/g,
-			(txt: string) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+			(txt: string) => txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()
 		)
 }

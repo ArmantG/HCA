@@ -1,13 +1,9 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { showMobileDropdown } from '$lib/stores';
-	import { dropdownItems } from '../../constants';
+	import { goto } from '$app/navigation'
+	import { mobileMenu } from '$lib/mobile-menu.svelte'
+	import { dropdownItems } from '../../constants'
 
-	let { drop } = $props<{ drop: string }>();
-
-	let show = $state(false);
-
-	showMobileDropdown.subscribe((value) => (show = value));
+	let { drop } = $props<{ drop: string }>()
 </script>
 
 <ul class="flex flex-col overflow-hidden text-white">
@@ -18,8 +14,8 @@
 				href={item.path}
 				data-nav-link="true"
 				onclick={() => {
-					showMobileDropdown.update(() => (show = false));
-					goto(item.path);
+					mobileMenu.open = false
+					goto(item.path)
 				}}>{item.title}</a
 			>
 		</li>

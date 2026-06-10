@@ -1,43 +1,18 @@
-export const config = {
-	title: '',
-	subTitle: '',
-	siteTitle: '',
-	author: '',
-	headerTitle: '',
-	description: '',
-	siteLanguage: 'en-ZA',
-	language: 'en-ZA',
-	theme: '', // system, dark or light
-	domain: '',
-	siteUrl: '',
-	siteLogo: '',
-	image: '',
-	email: '',
-
-	ogLanguage: 'en-ZA',
-	primaryColor: '',
-	locale: 'en-ZA',
-
-	// supports buttondown, convertkit, emailoctopus, klaviyo, mailchimp, revue
-	// use false or null to disable newsletter
-	// check .env.example for settings needed values for each service
-	newsletter: 'emailoctopus',
-
-
-}
-
-
-
-
-export const openGraph = {
-	enabled: true,
-	width: 1200,
-	height: 630
-}
-
-// supported systems: googleAnalytics, plausible, and simpleAnalytics
-export const analytics = {
-	googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
-	plausibleDomain: '', // e.g. pied-piper-blog.netlify.app
-	simpleAnalytics: false // true or false
-}
+export const SITE_TITLE = 'Harding Christian Academy'
+export const SITE_DESCRIPTION =
+	'Harding Christian Academy offers Christ-centered education with academic excellence and character formation.'
+export const SITE_DOMAIN = 'hardingchristianacademy.co.za'
+export const SITE_URL = 'https://www.hardingchristianacademy.co.za'
+export const SITE_AUTHOR = 'Harding Christian Academy'
+export const SITE_LANGUAGE = 'en-ZA'
+export const SITE_EMAIL = 'info@hardingchristianacademy.co.za'
+export const SITE_PHONE = '072 248 6965'
+export const SITE_ADDRESS = '8 Phillip Street, Harding, 4680, KwaZulu-Natal'
+export const FACEBOOK_URL = 'https://www.facebook.com/HardingChristianAcademy'
+export const GOOGLE_MAPS_URL =
+	'https://www.google.com/maps?q=8+Phillip+Street,+Harding,+KwaZulu-Natal'
+export const GOOGLE_DIRECTIONS_URL =
+	'https://www.google.com/maps/dir/?api=1&destination=8+Phillip+Street,+Harding,+KwaZulu-Natal'
+export const GOOGLE_MAPS_EMBED_URL =
+	'https://www.google.com/maps?q=8+Phillip+Street,+Harding,+KwaZulu-Natal&output=embed'
+export const SITE_LOGO = '/brand/hca-logo.png'

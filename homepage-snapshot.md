@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - img "Harding Christian Academy logo" [ref=e5]
+        - generic [ref=e6]:
+          - heading "Harding Christian Academy" [level=1] [ref=e7]
+          - paragraph [ref=e8]: Thy Word is our lamp.
+      - generic "Site status" [ref=e9]:
+        - strong [ref=e12]: Under Construction
+    - main [ref=e13]:
+      - generic [ref=e14]:
+        - region "Welcome to Harding Christian Academy" [ref=e15]:
+          - note [ref=e16]:
+            - strong [ref=e17]: "Notice:"
+            - text: This website is currently being developed.
+          - heading "Welcome to Harding Christian Academy" [level=2] [ref=e18]
+          - paragraph [ref=e19]: Our official website is under construction. While we build the full site, the key contact details are available below. Admission forms and additional information are available at the school in person. More resources and online information will be published here in due course.
+          - generic "Quick notes" [ref=e20]:
+            - generic [ref=e21]: "Admissions: visit the school"
+            - generic [ref=e22]: More info coming soon
+            - generic [ref=e23]: Harding, South Africa
+          - paragraph [ref=e24]: "Please note: this is a temporary landing page while the full website is being built as part of the project."
+        - complementary "Contact & Location" [ref=e25]:
+          - heading "Contact & Location" [level=3] [ref=e26]
+          - generic [ref=e27]:
+            - generic [ref=e28]:
+              - term [ref=e29]: Address
+              - definition [ref=e30]:
+                - generic [ref=e31]: 9 Philip Street, Harding
+            - generic [ref=e32]:
+              - term [ref=e33]: Principal
+              - definition [ref=e34]: 072 248 6965
+            - generic [ref=e35]:
+              - term [ref=e36]: Admissions
+              - definition [ref=e37]: Visit the school for admission forms and information.
+          - group "Contact actions" [ref=e38]:
+            - link "Call the principal" [ref=e39] [cursor=pointer]:
+              - /url: tel:0722486965
+              - text: Call
+            - button "Copy number" [ref=e40] [cursor=pointer]
+          - paragraph [ref=e41]: All information will be available on the website in due course.
+    - contentinfo [ref=e42]:
+      - generic [ref=e43]: © 2026 Harding Christian Academy
+      - generic "Build info" [ref=e44]: Temporary landing page
+  - status

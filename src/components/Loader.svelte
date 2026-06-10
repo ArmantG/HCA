@@ -1,7 +1,7 @@
 <script lang="ts">
-	import pcsLogoNewOutlineWhiteLoader from '../assets/images/pcsLogoNewOutlineWhiteLoader.png';
+	import pcsLogoNewOutlineWhiteLoader from '../assets/images/pcsLogoNewOutlineWhiteLoader.png'
 
-	let { style } = $props<{ style: string }>();
+	let { style } = $props<{ style: string }>()
 </script>
 
 <div class={`fixed top-0 left-0 z-999 h-screen w-full transform-gpu bg-navy ${style}`}>

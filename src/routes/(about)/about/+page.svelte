@@ -1,102 +1,79 @@
 <script lang="ts">
-	import { coreValues, goals, philosophy } from '../../../constants';
+	const values = [
+		'The best interests, dignity, and safety of every child',
+		'Fair and transparent admissions and school administration',
+		'A clear Christian ethos lived out in daily routines',
+		'Respectful partnership between school, parents, guardians, and learners'
+	]
+
+	const routines = [
+		'School runs from 08h00 to 14h00 for Foundation Phase and 08h00 to 14h45 for Grades 4 to 9, Monday to Friday.',
+		'Learners may be received from 07h30 and must be handed to a staff member.',
+		'Children may not be left unattended at the gate.',
+		'Parents must notify the school if collection arrangements change.'
+	]
 </script>
 
-<section class="mx-auto max-w-5xl px-6 py-16">
-	<p class="text-sm uppercase tracking-[0.3em] text-accent">About</p>
-	<h1 class="font-gt-walsheim-pro-medium mt-2 text-4xl text-neutral-900 sm:text-5xl">
-		Harding Christian Academy
-	</h1>
-	<p class="mt-4 max-w-2xl text-base text-neutral-600 sm:text-lg">
-		We are a Christ-centered school serving families in Harding with a focus on academic excellence,
-		character formation, and community service. We serve learners in Grades 1 to 7 across the
-		Foundation, Intermediate, and Senior Phases.
-	</p>
-
-	<div class="mt-8 grid gap-6 lg:grid-cols-3">
-		<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-			<h2 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">At a glance</h2>
-			<ul class="mt-4 space-y-2 text-sm text-neutral-600 sm:text-base">
-				<li>Small Christian primary school in Harding, KZN</li>
-				<li>Grades 1 to 7 across three phases</li>
-				<li>CAPS-aligned curriculum with strong literacy and numeracy</li>
-				<li>Focused on character, service, and community partnership</li>
-			</ul>
-		</div>
-		<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-			<h2 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">Our ethos</h2>
-			<p class="mt-3 text-sm text-neutral-600 sm:text-base">
-				We believe every learner is created with purpose. Our ethos emphasizes respect, humility,
-				responsibility, and compassion, shaped by Christian values and lived out in daily school
-				life.
-			</p>
-		</div>
-		<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-			<h2 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">Education approach</h2>
-			<p class="mt-3 text-sm text-neutral-600 sm:text-base">
-				We combine clear routines, strong teaching, and personal attention so learners feel safe,
-				known, and challenged. We prioritise foundational skills, critical thinking, and purposeful
-				learning.
-			</p>
-		</div>
-	</div>
-
-	<div class="mt-12">
-		<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Vision and mission</h2>
-		<p class="mt-2 text-sm text-neutral-600 sm:text-base">
-			Our guiding statements shape how we serve families and prepare learners for the next stage.
+<section class="bg-white">
+	<div class="mx-auto max-w-[1760px] px-5 py-14 sm:px-8 xl:px-12 2xl:px-16">
+		<p class="text-sm font-semibold uppercase tracking-wide text-gold">About HCA</p>
+		<h1 class="mt-3 max-w-4xl text-4xl font-semibold text-navy">
+			A small Christian school with clear expectations.
+		</h1>
+		<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
+			Harding Christian Academy is a Bible-based independent school in KwaZulu-Natal. Our education,
+			discipline, and community life are shaped by Scripture and Christian conviction. Families are
+			expected to support the school in creating a consistent, God-honouring environment for
+			learners.
 		</p>
 	</div>
+</section>
 
-	<div class="mt-6 grid gap-6 lg:grid-cols-3">
-		{#each philosophy as item}
-			<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-				<h2 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">{item.title}</h2>
-				<p class="mt-3 text-sm text-neutral-600 sm:text-base">{item.text}</p>
-			</div>
-		{/each}
-	</div>
-
-	<div class="mt-12 rounded-2xl border border-neutral-200 bg-neutral-50 p-8">
-		<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Our goals</h2>
-		<ul class="mt-6 space-y-3 text-sm text-neutral-700 sm:text-base">
-			{#each goals as goal}
-				<li>{goal.text}</li>
+<section
+	class="mx-auto grid max-w-[1760px] gap-10 px-5 py-12 sm:px-8 lg:grid-cols-2 xl:px-12 2xl:px-16"
+>
+	<div>
+		<h2 class="text-2xl font-semibold text-slate-900">Guiding principles</h2>
+		<ul class="mt-6 space-y-3 text-slate-700">
+			{#each values as value (value)}
+				<li class="flex gap-3">
+					<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>
+					<span>{value}</span>
+				</li>
 			{/each}
 		</ul>
 	</div>
 
-	<div class="mt-12 grid gap-6 lg:grid-cols-2">
-		<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-			<h3 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">Curriculum and phases</h3>
-			<ul class="mt-4 space-y-2 text-sm text-neutral-600 sm:text-base">
-				<li>Foundation Phase (Grades 1 to 3): literacy, numeracy, and life skills</li>
-				<li>Intermediate Phase (Grades 4 to 6): subject-based learning and study skills</li>
-				<li>Senior Phase (Grade 7): deeper content and high school readiness</li>
-				<li>Core subjects include Languages, Mathematics, Natural Sciences, and Social Sciences</li>
-			</ul>
-		</div>
-		<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-			<h3 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">Whole-child development</h3>
-			<ul class="mt-4 space-y-2 text-sm text-neutral-600 sm:text-base">
-				<li>Creative Arts and Life Skills built into weekly learning</li>
-				<li>Sport and movement for healthy growth and teamwork</li>
-				<li>Leadership and service opportunities within the school</li>
-				<li>Digital literacy and safe technology habits</li>
-			</ul>
-		</div>
+	<div>
+		<h2 class="text-2xl font-semibold text-slate-900">Daily routine and safety</h2>
+		<ul class="mt-6 space-y-3 text-slate-700">
+			{#each routines as routine (routine)}
+				<li class="flex gap-3">
+					<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>
+					<span>{routine}</span>
+				</li>
+			{/each}
+		</ul>
 	</div>
+</section>
 
-	<div class="mt-12 grid gap-6 lg:grid-cols-3">
-		{#each coreValues as value}
-			<div class="rounded-2xl border border-neutral-200 bg-white p-6">
-				<h3 class="font-gt-walsheim-pro-medium text-xl text-neutral-900">{value.title}</h3>
-				<ul class="mt-4 space-y-2 text-sm text-neutral-600">
-					{#each value.values as item}
-						<li>{item}</li>
-					{/each}
-				</ul>
+<section class="border-y border-slate-200 bg-slate-50">
+	<div class="mx-auto max-w-[1760px] px-5 py-12 sm:px-8 xl:px-12 2xl:px-16">
+		<div class="max-w-4xl">
+			<h2 class="text-2xl font-semibold text-slate-900">Parent partnership</h2>
+			<p class="mt-4 leading-7 text-slate-700">
+				Admission is based on a family partnership model. Parents and guardians commit to respectful
+				communication, punctual attendance at meetings when required, support of the code of
+				conduct, and keeping contact, medical, and legal information up to date.
+			</p>
+			<div class="mt-8">
+				<a
+					class="inline-flex min-h-11 items-center justify-center rounded-md bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+					href="/admissions/apply"
+				>
+					Apply to HCA
+				</a>
 			</div>
-		{/each}
+		</div>
 	</div>
 </section>

@@ -1,4 +1,3 @@
-
 # Harding Christian Academy Website - GitHub Issue Drafts
 
 ## Project backlog
@@ -25,9 +24,9 @@ milestone:M0, milestone:M1, milestone:M2, milestone:M3
 #### Milestones overview (visual)
 
 flowchart LR
-  M0[M0: Foundation + Deploy] --> M1[M1: MVP Public Pages + Forms]
-  M1 --> M2[M2: News + Calendar + Policies + Gallery]
-  M2 --> M3[M3: Admin + Automation + Show-off]
+M0[M0: Foundation + Deploy] --> M1[M1: MVP Public Pages + Forms]
+M1 --> M2[M2: News + Calendar + Policies + Gallery]
+M2 --> M3[M3: Admin + Automation + Show-off]
 
 ## M0 — Foundation + Deploy (P0)
 

@@ -34,15 +34,32 @@ import seniorHighDepartment from './seniorHighDepartment.webp'
 import stem from './stem.webp'
 import tvl from './tvl.webp'
 
-
 export {
 	abm,
-	ad, bsp, confirmation,
-	confirmation2, cross, equalizer, gas, gradeSchool,
-	gradeSchoolDepartment, humss, juniorHigh,
-	juniorHighDepartment, kinaadman,
+	ad,
+	bsp,
+	confirmation,
+	confirmation2,
+	cross,
+	equalizer,
+	gas,
+	gradeSchool,
+	gradeSchoolDepartment,
+	humss,
+	juniorHigh,
+	juniorHighDepartment,
+	kinaadman,
 	kinaadman2,
-	kinaadman3, logoCandleBook, logoLeaf, mathquizbee, pcsAnnex, pcsAnnex2, pcsLogoNew,
-	pcsLogoNewOutlineWhite, seniorHigh,
-	seniorHighDepartment, stem, tvl
+	kinaadman3,
+	logoCandleBook,
+	logoLeaf,
+	mathquizbee,
+	pcsAnnex,
+	pcsAnnex2,
+	pcsLogoNew,
+	pcsLogoNewOutlineWhite,
+	seniorHigh,
+	seniorHighDepartment,
+	stem,
+	tvl
 }

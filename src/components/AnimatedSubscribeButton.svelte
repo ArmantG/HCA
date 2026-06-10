@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { CheckIcon, ChevronRightIcon } from 'lucide-svelte';
-	import { Motion } from 'svelte-motion';
+	import { CheckIcon, ChevronRightIcon } from 'lucide-svelte'
+	import { Motion } from 'svelte-motion'
 
-	let { subscribeStatus = false } = $props();
+	let { subscribeStatus = false } = $props()
 
-	let isSubscribed = $state();
+	let isSubscribed = $state()
 
 	$effect(() => {
-		isSubscribed = subscribeStatus;
-	});
+		isSubscribed = subscribeStatus
+	})
 </script>
 
 {#snippet changeText()}

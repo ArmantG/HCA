@@ -1,4 +1,4 @@
-import { dev } from "$app/environment"
+import { dev } from '$app/environment'
 
 export type SeoInput = {
 	title?: string
@@ -21,7 +21,7 @@ export const SITE_NAME = 'Harding Christian Academy'
 export const SITE_URL = dev ? 'http://localhost:5174' : 'https://www.hardingchristianacademy.co.za'
 export const DEFAULT_DESCRIPTION =
 	'Harding Christian Academy offers Christ-centered education with academic excellence and character formation.'
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/pcsLogoNewOutlineWhite.png`
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/brand/hca-logo.png`
 
 const buildTitle = (title?: string) => {
 	if (!title || title === SITE_NAME) {

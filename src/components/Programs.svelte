@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { Event } from '$lib/data/events';
-	import { format } from 'date-fns';
-	import type { ObserverEventDetails, Options } from 'svelte-inview';
-	import { inview } from 'svelte-inview';
-	import OrangeBlob1 from '../assets/blobs/OrangeBlob1.svelte';
+	import type { Event } from '$lib/data/events'
+	import { format } from 'date-fns'
+	import type { ObserverEventDetails, Options } from 'svelte-inview'
+	import { inview } from 'svelte-inview'
+	import OrangeBlob1 from '../assets/blobs/OrangeBlob1.svelte'
 	import {
 		bsp,
 		confirmation,
@@ -13,10 +13,10 @@
 		kinaadman2,
 		kinaadman3,
 		mathquizbee
-	} from '../assets/images';
-	import '../styles/animations.css';
+	} from '../assets/images'
+	import '../styles/animations.css'
 
-	let { events } = $props<{ events: Event[] }>();
+	let { events } = $props<{ events: Event[] }>()
 
 	const programs = [
 		{
@@ -40,19 +40,19 @@
 			bg: 'bg-default',
 			source: '/senior-phase'
 		}
-	];
+	]
 
 	// Delay for the staggered effect
-	const delayProgram = ['delay-600', 'delay-800', 'delay-1000'];
-	const delayEvents = ['delay-600', 'delay-800', 'delay-1000'];
+	const delayProgram = ['delay-600', 'delay-800', 'delay-1000']
+	const delayEvents = ['delay-600', 'delay-800', 'delay-1000']
 
-	const options: Options = { rootMargin: '-10%', unobserveOnEnter: true };
-	let isInView = $state<boolean[]>([false, false, false]);
+	const options: Options = { rootMargin: '-10%', unobserveOnEnter: true }
+	let isInView = $state<boolean[]>([false, false, false])
 
 	function handleChangeFactory(index: number) {
 		return function handleChange({ detail }: CustomEvent<ObserverEventDetails>) {
-			isInView[index] = detail.inView;
-		};
+			isInView[index] = detail.inView
+		}
 	}
 </script>
 

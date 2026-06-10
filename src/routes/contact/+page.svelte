@@ -1,354 +1,227 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { consentText } from '$lib/content/legal';
-	import { Email, Facebook, Location, Plus, Telephone } from '../../assets/icons';
-	import { pcsLogoNewOutlineWhite } from '../../assets/images';
+	import { enhance } from '$app/forms'
+	import {
+		FACEBOOK_URL,
+		GOOGLE_DIRECTIONS_URL,
+		GOOGLE_MAPS_EMBED_URL,
+		GOOGLE_MAPS_URL,
+		SITE_ADDRESS,
+		SITE_EMAIL,
+		SITE_PHONE
+	} from '$lib/config'
+	import { consentText } from '$lib/content/legal'
 
-	let { form } = $props();
+	type ContactForm = {
+		success?: boolean
+		referenceId?: string
+		values?: Record<string, string>
+		errors?: Record<string, string[] | undefined>
+	}
 
-	let faqs = $state([
-		{
-			question: 'What are the admission requirements?',
-			answer:
-				'Please contact our admissions office at admissions@hardingchristianacademy.co.za or call 072 248 6965 for detailed requirements.',
-			show: false
-		},
-		{
-			question: 'How much is the tuition fee?',
-			answer:
-				'Tuition fees vary by grade level. For specific information, please contact the school office or visit during enrollment periods.',
-			show: false
-		},
-		{
-			question: "What is the school's grading system?",
-			answer:
-				'The school follows the national curriculum guidelines with continuous assessment and term reporting.',
-			show: false
-		},
-		{
-			question: 'How does the school communicate with parents and guardians?',
-			answer:
-				'We communicate through official notices, email, and direct contact with parents and guardians.',
-			show: false
-		},
-		{
-			question: "What is the school's policy on dress code?",
-			answer:
-				'Students are required to wear proper school uniforms. Casual attire such as shorts, sleeveless shirts, and ripped jeans are not permitted.',
-			show: false
-		},
-		{
-			question: 'What is the class size for each grade level?',
-			answer:
-				'Class sizes vary by grade level. Please contact the admissions office for current capacity.',
-			show: false
-		},
-		{
-			question: 'Is Harding Christian Academy accredited?',
-			answer:
-				'We follow the national curriculum requirements and maintain compliance with local education standards.',
-			show: false
-		},
-		{
-			question: 'What are the school hours?',
-			answer:
-				'School hours vary by grade level. Please contact the school office for specific schedules.',
-			show: false
-		},
-		{
-			question: 'Does the school offer extracurricular activities?',
-			answer:
-				'Yes, the school offers various extracurricular activities including sports, arts, and academic clubs.',
-			show: false
-		},
-		{
-			question: 'How can I schedule a school tour?',
-			answer:
-				'To schedule a school tour, please contact our office at 072 248 6965 or email info@hardingchristianacademy.co.za.',
-			show: false
-		}
-	]);
+	let { form }: { form?: ContactForm } = $props()
 
-	const contactInfo = {
-		email: 'info@hardingchristianacademy.co.za',
-		phone: '072 248 6965',
-		address: '9 Philip Street, Harding, KwaZulu-Natal, South Africa',
-		facebook: 'https://www.facebook.com/HardingChristianAcademy',
-		maps: 'https://www.google.com/maps?q=9+Philip+Street,+Harding,+KwaZulu-Natal'
-	};
+	const field = (name: string) => form?.values?.[name] ?? ''
+	const error = (name: string) => form?.errors?.[name]?.[0]
 </script>
 
-<div class="shadow-custom-1 relative flex h-full w-full max-w-full flex-col lg:flex-row">
-	<!-- Contact Information Section - Left Side -->
-	<div class="relative h-full w-full flex-1 bg-white px-[5%] lg:px-[8%]">
-		<div class="flex flex-col items-center justify-center pb-10 pt-32 sm:pb-20 sm:pt-40">
-			<div class="mb-10 flex flex-col items-center justify-center">
-				<img
-					class="mb-10 h-28 w-28"
-					src={pcsLogoNewOutlineWhite}
-					alt="Harding Christian Academy logo"
-				/>
-				<h1 class="font-gt-walsheim-pro-medium mb-2 text-center text-2xl text-black sm:text-4xl">
-					Get in Touch with Us
-				</h1>
-				<p class="text-center text-base text-black sm:text-lg">
-					Contact Harding Christian Academy for inquiries and information
-				</p>
-			</div>
+<section class="bg-white">
+	<div class="mx-auto max-w-[1760px] px-5 py-14 sm:px-8 xl:px-12 2xl:px-16">
+		<p class="text-sm font-semibold uppercase tracking-wide text-gold">Contact</p>
+		<h1 class="mt-3 max-w-4xl text-4xl font-semibold text-navy">Contact the school office.</h1>
+		<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
+			For admissions, fees, policy questions, or general enquiries, contact the school office during
+			working hours.
+		</p>
+	</div>
+</section>
 
-			<!-- Contact Cards -->
-			<div class="mb-10 grid w-full max-w-2xl grid-cols-1 gap-6 md:grid-cols-2">
-				<!-- Email Card -->
-				<div
-					class="flex flex-col items-center rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg"
-				>
-					<div
-						class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent bg-opacity-10"
-					>
-						<Email style="h-8 w-8 text-accent" />
-					</div>
-					<h3 class="font-gt-walsheim-pro-medium mb-2 text-lg text-black">Email Us</h3>
-					<a
-						href="mailto:{contactInfo.email}"
-						class="text-accent text-center text-sm transition-opacity hover:opacity-70 sm:text-base"
-					>
-						{contactInfo.email}
-					</a>
-				</div>
-
-				<!-- Phone Card -->
-				<div
-					class="flex flex-col items-center rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg"
-				>
-					<div
-						class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent bg-opacity-10"
-					>
-						<Telephone style="h-8 w-8 text-accent" />
-					</div>
-					<h3 class="font-gt-walsheim-pro-medium mb-2 text-lg text-black">Call Us</h3>
-					<p class="text-center text-sm text-black sm:text-base">{contactInfo.phone}</p>
-				</div>
-
-				<!-- Location Card -->
-				<div
-					class="flex flex-col items-center rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg"
-				>
-					<div
-						class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent bg-opacity-10"
-					>
-						<Location style="h-8 w-8 text-accent" />
-					</div>
-					<h3 class="font-gt-walsheim-pro-medium mb-2 text-lg text-black">Visit Us</h3>
-					<a
-						href={contactInfo.maps}
-						target="_blank"
-						rel="noreferrer"
-						class="text-accent text-center text-sm transition-opacity hover:opacity-70 sm:text-base"
-					>
-						{contactInfo.address}
-					</a>
-				</div>
-
-				<!-- Facebook Card -->
-				<div
-					class="flex flex-col items-center rounded-2xl border border-neutral-200 p-6 transition-shadow hover:shadow-lg"
-				>
-					<div
-						class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent bg-opacity-10"
-					>
-						<Facebook style="h-8 w-8 text-accent" />
-					</div>
-					<h3 class="font-gt-walsheim-pro-medium mb-2 text-lg text-black">Follow Us</h3>
-					<a
-						href={contactInfo.facebook}
-						target="_blank"
-						rel="noreferrer"
-						class="text-accent text-center text-sm transition-opacity hover:opacity-70 sm:text-base"
-					>
-						Harding Christian Academy
-					</a>
-				</div>
-			</div>
-
-			<!-- General Enquiry Form -->
-			<div class="mb-10 w-full max-w-2xl rounded-2xl border border-neutral-200 p-8">
-				<h2 class="font-gt-walsheim-pro-medium mb-2 text-2xl text-black">Send an Enquiry</h2>
-				<p class="mb-6 text-sm text-neutral-600 sm:text-base">
-					We respond during office hours and will get back to you as soon as possible.
-				</p>
-				{#if form?.success}
-					<div class="mb-6 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
-						Thank you. Your enquiry was sent successfully. Reference: {form.referenceId}
-					</div>
-				{/if}
-				{#if form?.errors?.form}
-					<div class="mb-6 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
-						{form.errors.form[0]}
-					</div>
-				{/if}
-				<form method="POST" use:enhance class="flex flex-col gap-4">
-					<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-						<label class="text-sm text-neutral-700">
-							Full name
-							<input
-								class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
-								name="name"
-								autocomplete="name"
-								value={form?.values?.name ?? ''}
-								required
-							/>
-							{#if form?.errors?.name}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.name[0]}</span>
-							{/if}
-						</label>
-						<label class="text-sm text-neutral-700">
-							Phone number
-							<input
-								class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
-								name="phone"
-								autocomplete="tel"
-								value={form?.values?.phone ?? ''}
-								required
-							/>
-							{#if form?.errors?.phone}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.phone[0]}</span>
-							{/if}
-						</label>
-					</div>
-					<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-						<label class="text-sm text-neutral-700">
-							Email address
-							<input
-								class="mt-2 w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
-								name="email"
-								type="email"
-								autocomplete="email"
-								value={form?.values?.email ?? ''}
-							/>
-							{#if form?.errors?.email}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.email[0]}</span>
-							{/if}
-						</label>
-						<label class="text-sm text-neutral-700">
-							Topic
-							<select
-								class="mt-2 w-full rounded-lg border border-neutral-200 bg-white px-3 py-2 text-sm"
-								name="topic"
-								value={form?.values?.topic ?? ''}
-								required
-							>
-								<option value="">Select a topic</option>
-								<option value="General">General</option>
-								<option value="Admissions">Admissions</option>
-								<option value="Fees">Fees</option>
-								<option value="Other">Other</option>
-							</select>
-							{#if form?.errors?.topic}
-								<span class="mt-1 block text-xs text-red-600">{form.errors.topic[0]}</span>
-							{/if}
-						</label>
-					</div>
-					<label class="text-sm text-neutral-700">
-						Message
-						<textarea
-							class="mt-2 min-h-[140px] w-full rounded-lg border border-neutral-200 px-3 py-2 text-sm"
-							name="message"
-							required>{form?.values?.message ?? ''}</textarea
+<section class="bg-slate-50">
+	<div class="mx-auto max-w-[1760px] px-5 py-12 sm:px-8 xl:px-12 2xl:px-16">
+		<div class="grid gap-6 lg:grid-cols-2">
+			<div class="border border-slate-200 bg-white p-6 sm:p-7">
+				<h2 class="text-xl font-semibold text-slate-900">Office details</h2>
+				<ul class="mt-4 space-y-4 text-sm text-slate-700 sm:text-base">
+					<li>
+						<strong class="block text-slate-900">Phone</strong>
+						<a class="text-navy underline" href={`tel:${SITE_PHONE.replaceAll(' ', '')}`}
+							>{SITE_PHONE}</a
 						>
-						{#if form?.errors?.message}
-							<span class="mt-1 block text-xs text-red-600">{form.errors.message[0]}</span>
-						{/if}
-					</label>
-					<label class="flex items-start gap-3 text-sm text-neutral-700">
+					</li>
+					<li>
+						<strong class="block text-slate-900">Email</strong>
+						<a class="break-words text-navy underline" href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a
+						>
+					</li>
+					<li>
+						<strong class="block text-slate-900">Address</strong>
+						<a class="text-navy underline" href={GOOGLE_MAPS_URL}>{SITE_ADDRESS}</a>
+					</li>
+					<li>
+						<strong class="block text-slate-900">Facebook</strong>
+						<a class="text-navy underline" href={FACEBOOK_URL}>Harding Christian Academy</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="border border-slate-200 bg-white">
+				<div class="h-48 overflow-hidden bg-slate-100 sm:h-56">
+					<iframe
+						class="h-full w-full border-0"
+						title="Map showing Harding Christian Academy"
+						src={GOOGLE_MAPS_EMBED_URL}
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+				<div class="p-5">
+					<h2 class="text-xl font-semibold text-slate-900">Find us</h2>
+					<p class="mt-2 text-sm leading-6 text-slate-700">
+						Use the map preview or open directions in Google Maps to find the school.
+					</p>
+					<a
+						class="mt-4 inline-flex min-h-11 items-center justify-center rounded-md bg-navy px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+						href={GOOGLE_DIRECTIONS_URL}
+						target="_blank"
+						rel="noreferrer"
+					>
+						Get directions
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-10 border-l-4 border-gold bg-white p-6">
+			<div class="max-w-3xl">
+				<h2 class="text-xl font-semibold text-slate-900">Applying?</h2>
+				<p class="mt-3 text-sm leading-6 text-slate-700">
+					The fastest way to start is the online application form. It collects the full application
+					pack and supporting documents.
+				</p>
+				<a class="mt-4 inline-flex font-semibold text-navy underline" href="/admissions/apply"
+					>Apply online</a
+				>
+			</div>
+		</div>
+
+		<div class="mt-10 bg-white p-6 sm:p-8">
+			<h2 class="text-2xl font-semibold text-slate-900">Send an enquiry</h2>
+			<p class="mt-2 text-sm text-slate-600">We respond during office hours.</p>
+
+			{#if form?.success}
+				<div
+					class="mt-6 border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800"
+				>
+					Thank you. Your enquiry was sent successfully. Reference: {form.referenceId}
+				</div>
+			{/if}
+			{#if form?.errors?.form}
+				<div class="mt-6 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+					{form.errors.form[0]}
+				</div>
+			{/if}
+
+			<form class="mt-6 grid gap-5" method="POST" use:enhance>
+				<div class="grid gap-5 sm:grid-cols-2">
+					<label class="text-sm font-medium text-slate-700">
+						Full name
 						<input
-							class="mt-1 h-4 w-4"
-							type="checkbox"
-							name="consent"
-							checked={form?.values?.consent === 'on'}
+							class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-base"
+							name="name"
+							autocomplete="name"
+							value={field('name')}
 							required
 						/>
-						<span>{consentText}</span>
+						{#if error('name')}
+							<span class="mt-1 block text-xs text-red-600">{error('name')}</span>
+						{/if}
 					</label>
-					{#if form?.errors?.consent}
-						<span class="text-xs text-red-600">{form.errors.consent[0]}</span>
-					{/if}
-					<input
-						class="hidden"
-						name="website"
-						tabindex="-1"
-						autocomplete="off"
-						value={form?.values?.website ?? ''}
-					/>
-					<button
-						class="mt-2 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm text-white transition-all hover:scale-105 hover:brightness-110"
-						type="submit"
-					>
-						Send enquiry
-					</button>
-				</form>
-			</div>
-
-			<!-- Apply Now Section -->
-			<div class="w-full max-w-2xl rounded-2xl bg-accent bg-opacity-10 p-8 text-center">
-				<h2 class="font-gt-walsheim-pro-medium mb-4 text-2xl text-black sm:text-3xl">
-					Ready to Join Harding Christian Academy?
-				</h2>
-				<p class="mb-6 text-base text-black sm:text-lg">
-					Start your journey of academic and personal growth at Harding Christian Academy
-				</p>
-				<a
-					href="/admissions"
-					class="inline-block rounded-full bg-accent px-6 py-3 text-white transition-all hover:scale-105 hover:brightness-110"
-				>
-					Admissions
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- FAQs Section - Right Side -->
-	<div
-		class="h-auto w-full overflow-x-hidden overflow-y-scroll bg-gradient-to-t from-navy to-slate px-[5%] py-20 sm:py-32 lg:w-[450px] lg:px-[6%] lg:py-40 xl:w-[500px]"
-	>
-		<div class="mb-10 sm:mb-16">
-			<h1
-				class="font-gt-walsheim-pro-medium mb-2 text-center text-2xl text-white sm:text-3xl lg:text-left"
-			>
-				Frequently Asked Questions
-			</h1>
-			<p class="text-center text-sm text-white sm:text-base lg:text-left">
-				Find answers to common questions
-			</p>
-		</div>
-		<div class="flex flex-col gap-4">
-			{#each faqs as faq, idx (idx)}
-				<div
-					class="after:bg-accent relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:bg-white before:bg-opacity-20 before:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100"
-				>
-					<button
-						class="relative flex w-full items-center transition-[filter] duration-300"
-						onclick={() => (faq.show = !faq.show)}
-					>
-						<div
-							class="font-gt-walsheim-pro-medium flex h-full w-full items-center px-4 py-2 text-left text-base text-white sm:text-lg"
-						>
-							{faq.question}
-						</div>
-						<div class="flex h-full shrink-0 items-center">
-							<Plus
-								style={`h-10 w-10 sm:h-12 sm:w-12 text-accent transition-transform duration-300 ${
-									faq.show ? 'rotate-[135deg] scale-75' : 'rotate-0 scale-100'
-								}`}
-							/>
-						</div>
-					</button>
-					<div
-						class={`px-4 py-2 text-sm sm:text-base w-full text-neutral-300 ${faq.show ? 'block' : 'hidden'}`}
-					>
-						{faq.answer}
-					</div>
+					<label class="text-sm font-medium text-slate-700">
+						Phone number
+						<input
+							class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-base"
+							name="phone"
+							type="tel"
+							autocomplete="tel"
+							value={field('phone')}
+							required
+						/>
+						{#if error('phone')}
+							<span class="mt-1 block text-xs text-red-600">{error('phone')}</span>
+						{/if}
+					</label>
 				</div>
-			{/each}
+				<div class="grid gap-5 sm:grid-cols-2">
+					<label class="text-sm font-medium text-slate-700">
+						Email address
+						<input
+							class="mt-2 w-full rounded-md border border-slate-300 px-3 py-2 text-base"
+							name="email"
+							type="email"
+							autocomplete="email"
+							value={field('email')}
+						/>
+						{#if error('email')}
+							<span class="mt-1 block text-xs text-red-600">{error('email')}</span>
+						{/if}
+					</label>
+					<label class="text-sm font-medium text-slate-700">
+						Topic
+						<select
+							class="mt-2 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-base"
+							name="topic"
+							required
+						>
+							<option value="">Select a topic</option>
+							<option value="General" selected={field('topic') === 'General'}>General</option>
+							<option value="Admissions" selected={field('topic') === 'Admissions'}
+								>Admissions</option
+							>
+							<option value="Fees" selected={field('topic') === 'Fees'}>Fees</option>
+							<option value="Other" selected={field('topic') === 'Other'}>Other</option>
+						</select>
+						{#if error('topic')}
+							<span class="mt-1 block text-xs text-red-600">{error('topic')}</span>
+						{/if}
+					</label>
+				</div>
+				<label class="text-sm font-medium text-slate-700">
+					Message
+					<textarea
+						class="mt-2 min-h-36 w-full rounded-md border border-slate-300 px-3 py-2 text-base"
+						name="message"
+						required>{field('message')}</textarea
+					>
+					{#if error('message')}
+						<span class="mt-1 block text-xs text-red-600">{error('message')}</span>
+					{/if}
+				</label>
+				<label class="flex items-start gap-3 text-sm text-slate-700">
+					<input
+						class="mt-1 h-4 w-4"
+						type="checkbox"
+						name="consent"
+						checked={field('consent') === 'on'}
+						required
+					/>
+					<span>{consentText}</span>
+				</label>
+				{#if error('consent')}
+					<span class="text-xs text-red-600">{error('consent')}</span>
+				{/if}
+				<input
+					class="hidden"
+					name="website"
+					tabindex="-1"
+					autocomplete="off"
+					value={field('website')}
+				/>
+				<button
+					class="inline-flex min-h-11 items-center justify-center rounded-md bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+					type="submit"
+				>
+					Send enquiry
+				</button>
+			</form>
 		</div>
 	</div>
-</div>
+</section>

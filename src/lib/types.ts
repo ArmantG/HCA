@@ -1,30 +1,30 @@
 export type DropdownItem = {
-  title: string,
-  path: string
+	title: string
+	path: string
 }
 
 export type DropdownItems = {
-  [key: string]: DropdownItem[]
+	[key: string]: DropdownItem[]
 }
 
 export type Program = {
-  mainText: string,
-  subText: string[]
+	mainText: string
+	subText: string[]
 }
 
 export type Programs = {
-  title: string,
-  content: Program[]
+	title: string
+	content: Program[]
 }
 
 export type Data = {
-  contents: Programs;
+	contents: Programs
 }
 
 export type Chat = {
-  type: string;
-  text: string;
-};
+	type: string
+	text: string
+}
 
 // export type CalendarEvent = {
 //   attributes: {
@@ -46,55 +46,54 @@ export type Chat = {
 // }
 
 type CalendarDate = {
-  id: number;
-  start: string;
-  end: string;
-};
+	id: number
+	start: string
+	end: string
+}
 
 type CalendarEventAttributes = {
-  title: string;
-  type: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  date: CalendarDate;
-};
-
+	title: string
+	type: string
+	createdAt: string
+	updatedAt: string
+	publishedAt: string
+	date: CalendarDate
+}
 
 type CalendarData = {
-  data: CalendarEvent[];
-};
+	data: CalendarEvent[]
+}
 
 type CalendarAttributes = {
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  calendars: CalendarData;
-};
+	createdAt: string
+	updatedAt: string
+	publishedAt: string
+	calendars: CalendarData
+}
 
 export type CalendarEvent = {
-  id: number;
-  attributes: CalendarEventAttributes;
-};
+	id: number
+	attributes: CalendarEventAttributes
+}
 
 export type Calendar = {
-  id: number;
-  attributes: CalendarAttributes;
-};
+	id: number
+	attributes: CalendarAttributes
+}
 
 export type EventMap = {
-  [key: string]: CalendarEvent[]
+	[key: string]: CalendarEvent[]
 }
 
 export type LatestEvent = {
-  attributes: {
-    createdAt: string,
-    date: string,
-    description: string,
-    publishedAt: string,
-    source: string,
-    title: string,
-    updatedAt: string,
-  },
-  id: number,
+	attributes: {
+		createdAt: string
+		date: string
+		description: string
+		publishedAt: string
+		source: string
+		title: string
+		updatedAt: string
+	}
+	id: number
 }

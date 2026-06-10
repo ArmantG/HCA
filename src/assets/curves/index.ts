@@ -1,7 +1,4 @@
-import CurveWhiteBottom from "./CurveWhiteBottom.svelte";
-import CurveWhiteTop from "./CurveWhiteTop.svelte";
+import CurveWhiteBottom from './CurveWhiteBottom.svelte'
+import CurveWhiteTop from './CurveWhiteTop.svelte'
 
-export {
-  CurveWhiteBottom,
-  CurveWhiteTop,
-}
+export { CurveWhiteBottom, CurveWhiteTop }

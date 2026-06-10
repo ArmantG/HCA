@@ -1,9 +1,9 @@
-import adapter from '@sveltejs/adapter-vercel';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { mdsvex } from 'mdsvex';
-import sequence from 'svelte-sequential-preprocessor';
+import adapter from '@sveltejs/adapter-vercel'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { mdsvex } from 'mdsvex'
+import sequence from 'svelte-sequential-preprocessor'
 
-import mdsvexConfig from './mdsvex.config.js';
+import mdsvexConfig from './mdsvex.config.js'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -31,6 +31,6 @@ const config = {
 			entries: ['*']
 		}
 	}
-};
+}
 
-export default config;
+export default config

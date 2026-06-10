@@ -1,17 +1,14 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	import { showMobileDropdown } from '$lib/stores';
-	import { ChevronRight } from '../../assets/icons';
-	import { navItems } from '../../constants';
-	import DropdownMobile from './DropdownMobile.svelte';
+	import { goto } from '$app/navigation'
+	import { mobileMenu } from '$lib/mobile-menu.svelte'
+	import { ChevronRight } from '../../assets/icons'
+	import { navItems } from '../../constants'
+	import DropdownMobile from './DropdownMobile.svelte'
 
-	let show = $state(false);
-	let openDropdowns = $state<{ [key: string]: boolean }>({});
-
-	showMobileDropdown.subscribe((value) => (show = value));
+	let openDropdowns = $state<{ [key: string]: boolean }>({})
 
 	function toggleDropdown(itemData: string) {
-		openDropdowns[itemData] = !openDropdowns[itemData];
+		openDropdowns[itemData] = !openDropdowns[itemData]
 	}
 </script>
 
@@ -28,8 +25,8 @@
 							class="flex h-full w-full justify-between p-4"
 							data-nav={item.data}
 							onclick={(e) => {
-								e.stopPropagation();
-								toggleDropdown(item.data);
+								e.stopPropagation()
+								toggleDropdown(item.data)
 							}}
 						>
 							{item.title}
@@ -52,8 +49,8 @@
 						data-nav={item.data}
 						data-nav-link="true"
 						onclick={() => {
-							showMobileDropdown.update(() => (show = false));
-							goto(item.path);
+							mobileMenu.open = false
+							goto(item.path)
 						}}>{item.title}</a
 					>
 				</li>

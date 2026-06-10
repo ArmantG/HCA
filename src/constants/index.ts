@@ -5,43 +5,43 @@ export const navItems = [
 		title: 'Home',
 		path: '/',
 		data: 'home',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'About',
 		path: '/about',
 		data: 'about',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'Academics',
 		path: '/academics',
 		data: 'academics',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'Admissions',
 		path: '/admissions',
 		data: 'admissions',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'Fees',
 		path: '/fees',
 		data: 'fees',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'News',
 		path: '/news',
 		data: 'news',
-		drop: false,
+		drop: false
 	},
 	{
 		title: 'Contact',
 		path: '/contact',
 		data: 'contact',
-		drop: false,
+		drop: false
 	}
 ]
 
@@ -130,35 +130,17 @@ export const coreValues = [
 			'Hope and trust in God',
 			'Respect for the dignity of every person'
 		],
-		values: [
-			'Reverence',
-			'Gratitude',
-			'Humility',
-			'Truthfulness',
-			'Steadfastness'
-		]
+		values: ['Reverence', 'Gratitude', 'Humility', 'Truthfulness', 'Steadfastness']
 	},
 	{
 		title: 'Integrity',
 		text: ['Honesty in word and deed', 'Responsible choices', 'Respect for others'],
-		values: [
-			'Accountability',
-			'Courage',
-			'Self-control',
-			'Discipline',
-			'Reliability'
-		]
+		values: ['Accountability', 'Courage', 'Self-control', 'Discipline', 'Reliability']
 	},
 	{
 		title: 'Service',
 		text: ['Compassion for others', 'Community involvement', 'Stewardship of resources'],
-		values: [
-			'Kindness',
-			'Generosity',
-			'Justice',
-			'Perseverance',
-			'Teamwork'
-		]
+		values: ['Kindness', 'Generosity', 'Justice', 'Perseverance', 'Teamwork']
 	}
 ]
 

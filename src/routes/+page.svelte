@@ -1,127 +1,160 @@
 <script lang="ts">
-	import type { ObserverEventDetails, Options } from 'svelte-inview';
-	import { inview } from 'svelte-inview';
-	import { CurveWhiteBottom, CurveWhiteTop } from '../assets/curves';
-	import { pcsAnnex } from '../assets/images';
-	import { Hero, Programs } from '../components';
-	import '../styles/curves.css';
+	import { GOOGLE_MAPS_URL, SITE_ADDRESS, SITE_PHONE } from '$lib/config'
 
-	let { data } = $props();
+	const quickFacts = [
+		{ label: 'Grades', value: '1 to 9' },
+		{ label: 'School starts', value: '07h30' },
+		{
+			label: 'School ends',
+			value: '14h00 / 14h45',
+			details: ['Foundation Phase: 14h00', 'Grades 4 to 9: 14h45']
+		},
+		{ label: 'Learners enrolled', value: '229' }
+	]
 
-	let isInView = $state<boolean[]>([false, false]);
-
-	const options: Options = { rootMargin: '-10%', unobserveOnEnter: true };
-
-	function handleChangeFactory(index: number) {
-		return function handleChange({ detail }: CustomEvent<ObserverEventDetails>) {
-			isInView[index] = detail.inView;
-		};
-	}
+	const schoolInfo = [
+		{ label: 'Phone', value: SITE_PHONE, href: `tel:${SITE_PHONE.replaceAll(' ', '')}` },
+		{ label: 'Address', value: SITE_ADDRESS, href: GOOGLE_MAPS_URL },
+		{ label: 'School phases', value: 'Foundation, Intermediate, and Senior Phase' }
+	]
 </script>
 
-<!-- Hero section -->
-<Hero />
-
-<!-- Homepage body -->
-<div class="relative flex w-full bg-white px-[10%] py-24 text-black lg:px-[20%] lg:py-40">
-	<div class="flex flex-col justify-center">
-		<h2
-			class={`font-gt-walsheim-pro-medium transition-transform-opacity-filter transform-gpu text-start text-3xl duration-1000 ease-in-out md:text-center md:text-5xl ${
-				isInView[0]
-					? 'lg:translate-y-0 lg:opacity-100 lg:blur-0'
-					: 'lg:translate-y-full lg:opacity-0 lg:blur-[2px]'
-			}`}
-			use:inview={options}
-			oninview_change={handleChangeFactory(0)}
-		>
-			Your home for Christ-centered learning from early years to graduation
-		</h2>
-		<span
-			class={`bg-accent my-8 h-0.5 w-full transform-gpu rounded-full transition-transform duration-1000 ease-in-out ${
-				isInView[0] ? 'lg:scale-x-100 lg:delay-700' : 'lg:scale-x-0'
-			}`}
-		></span>
-		<p
-			class={`transition-transform-opacity-filter transform-gpu text-base delay-700 duration-1000 ease-in-out md:text-center md:text-2xl ${
-				isInView[0]
-					? 'lg:translate-y-0 lg:opacity-100 lg:blur-0'
-					: 'lg:translate-y-full lg:opacity-0 lg:blur-[2px]'
-			}`}
-		>
-			Harding Christian Academy offers a caring, disciplined environment where learners grow in
-			faith, character, and academic excellence. We partner with families to build confident
-			students who are ready to serve and lead.
-		</p>
-	</div>
-</div>
-
-<!-- Academic programs and latest events -->
-<div class="relative bg-navy">
-	<CurveWhiteTop />
-	<Programs events={data.events} />
-	<CurveWhiteBottom />
-</div>
-
-<div class="relative h-full bg-white px-[10%] py-24 lg:py-40">
-	<img
-		loading="lazy"
-		src={pcsAnnex}
-		alt="Harding Christian Academy campus"
-		class="transition-transform-opacity-filter hidden md:block absolute bottom-0 right-0 max-w-sm opacity-20 saturate-0 duration-300 sm:right-[10%] md:max-w-lg lg:max-w-none lg:hover:opacity-75 lg:hover:saturate-100"
-	/>
+<section class="bg-white">
 	<div
-		class="flex justify-between gap-10 lg:w-2/3"
-		use:inview={options}
-		oninview_change={handleChangeFactory(1)}
+		class="mx-auto grid max-w-[1760px] gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1fr)_420px] lg:py-20 xl:px-12 2xl:px-16"
 	>
-		<div class="flex flex-col">
-			<div
-				class={`transition-transform-opacity-filter relative flex transform-gpu flex-col whitespace-nowrap duration-1000 ease-in-out  ${
-					isInView[1]
-						? 'lg:translate-y-0 lg:opacity-100 lg:blur-0'
-						: 'lg:translate-y-full lg:opacity-0 lg:blur-[2px]'
-				}`}
-			></div>
-			<h2
-				class={`font-gt-walsheim-pro-medium transition-transform-opacity-filter mb-8 text-3xl duration-1000 ease-in-out md:text-5xl ${
-					isInView[1]
-						? 'lg:translate-y-0 lg:opacity-100 lg:blur-0'
-						: 'lg:translate-y-full lg:opacity-0 lg:blur-[2px]'
-				}`}
-			>
-				Join Harding Christian Academy
-			</h2>
-			<div>
-				<div class="relative pl-3 sm:pl-6">
-					<span
-						class={`bg-accent absolute inset-y-0 left-0 w-1 origin-top rounded-full transition-transform delay-700 duration-1000 sm:w-2 ${
-							isInView[1] ? 'lg:scale-y-100' : 'lg:scale-y-0'
-						}`}
-					></span>
-					<p
-						class={`mb-10 w-full text-base delay-700 duration-1000 ease-in-out sm:max-w-[75%] md:mb-20 md:text-2xl ${
-							isInView[1]
-								? 'lg:translate-y-0 lg:opacity-100 lg:blur-0'
-								: 'lg:translate-y-full lg:opacity-0 lg:blur-[2px]'
-						}`}
-					>
-						Your journey of academic and personal growth begins here. Discover purposeful learning
-						in a community that values faith, excellence, and service.
-					</p>
-				</div>
-				<div class="flex gap-4">
-					<a
-						class="hover:bg-accent z-30 rounded-full bg-navy px-4 py-2 text-sm text-white transition-[transform,background-color] duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
-						href="/admissions"
-						type="button">Admissions</a
-					>
-					<a
-						class="z-30 rounded-full border border-navy px-4 py-2 text-sm text-navy transition-transform duration-300 hover:scale-90 md:px-5 md:py-3 md:text-xl"
-						href="/contact"
-						type="button">Contact Us</a
-					>
-				</div>
+		<div class="max-w-4xl">
+			<p class="text-sm font-semibold uppercase tracking-wide text-gold">
+				Harding Christian Academy
+			</p>
+			<h1 class="mt-4 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">
+				Christ-centered schooling for families in Harding.
+			</h1>
+			<p class="mt-6 max-w-3xl text-lg leading-8 text-slate-700">
+				HCA is an independent Christian school serving Grades 1 to 9. We aim to provide a safe,
+				orderly learning environment and a constructive partnership with parents and guardians.
+			</p>
+			<div class="mt-8 flex flex-col gap-3 sm:flex-row">
+				<a
+					class="inline-flex min-h-11 items-center justify-center rounded-md bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+					href="/admissions/apply"
+				>
+					Start application
+				</a>
+				<a
+					class="inline-flex min-h-11 items-center justify-center rounded-md border border-slate-300 px-6 py-3 text-sm font-semibold text-navy transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+					href="/admissions"
+				>
+					View admissions steps
+				</a>
 			</div>
 		</div>
+
+		<aside class="border-t-4 border-gold bg-slate-50 p-6 lg:self-start">
+			<h2 class="text-xl font-semibold text-slate-900">School information</h2>
+			<dl class="mt-5 space-y-5 text-sm leading-6">
+				{#each schoolInfo as item (item.label)}
+					<div>
+						<dt class="font-semibold text-slate-900">{item.label}</dt>
+						<dd class="mt-1 text-slate-700">
+							{#if item.href}
+								<a class="text-navy underline" href={item.href}>{item.value}</a>
+							{:else}
+								{item.value}
+							{/if}
+						</dd>
+					</div>
+				{/each}
+			</dl>
+		</aside>
 	</div>
-</div>
+</section>
+
+<section class="bg-navy text-white">
+	<div
+		class="mx-auto grid max-w-[1760px] divide-y divide-white/15 md:grid-cols-2 md:divide-x md:divide-y-0 lg:grid-cols-4"
+	>
+		{#each quickFacts as fact (fact.label)}
+			<div
+				class="flex min-h-32 flex-col items-center justify-center px-6 py-8 text-center sm:min-h-36 lg:px-8"
+			>
+				<p class="text-base font-semibold text-white/75">{fact.label}</p>
+				<p class="mt-2 text-3xl font-semibold leading-tight text-white sm:text-4xl">{fact.value}</p>
+				{#if fact.details}
+					<div class="mt-3 space-y-1 text-sm font-medium leading-5 text-white/75">
+						{#each fact.details as detail (detail)}
+							<p>{detail}</p>
+						{/each}
+					</div>
+				{/if}
+			</div>
+		{/each}
+	</div>
+</section>
+
+<section
+	class="mx-auto grid max-w-[1760px] gap-8 px-5 py-14 sm:px-8 lg:grid-cols-2 xl:px-12 2xl:px-16"
+>
+	<div>
+		<h2 class="text-2xl font-semibold text-slate-900">Admissions process</h2>
+		<ol class="mt-6 space-y-4 text-sm leading-6 text-slate-700">
+			<li>
+				<strong class="text-slate-900">1. Apply online.</strong> Submit the form and documents.
+			</li>
+			<li>
+				<strong class="text-slate-900">2. Office review.</strong> We check space, documents, and support
+				needs.
+			</li>
+			<li>
+				<strong class="text-slate-900">3. Interview or placement check.</strong> We may arrange a meeting
+				or readiness check.
+			</li>
+			<li>
+				<strong class="text-slate-900">4. Written outcome.</strong> Accepted families complete enrolment
+				confirmation.
+			</li>
+		</ol>
+	</div>
+
+	<div>
+		<h2 class="text-2xl font-semibold text-slate-900">Fees at a glance</h2>
+		<div class="mt-6 overflow-hidden border border-slate-200 bg-white">
+			<div class="grid grid-cols-2 border-b border-slate-200 p-4">
+				<span>Registration fee</span>
+				<strong class="text-right text-navy">R 2,500</strong>
+			</div>
+			<div class="grid grid-cols-2 border-b border-slate-200 p-4">
+				<span>Monthly tuition</span>
+				<strong class="text-right text-navy">R 1,400 eldest / R 1,200 sibling</strong>
+			</div>
+			<div class="grid grid-cols-2 p-4">
+				<span>Annual tuition</span>
+				<strong class="text-right text-navy">R 15,400 eldest / R 13,200 sibling</strong>
+			</div>
+		</div>
+		<p class="mt-4 text-sm leading-6 text-slate-600">
+			Fees are payable in advance. See the fees page and full policy for payment references and
+			arrears arrangements.
+		</p>
+	</div>
+</section>
+
+<section class="bg-navy text-white">
+	<div
+		class="mx-auto flex max-w-[1760px] flex-col gap-6 px-5 py-10 sm:px-8 md:flex-row md:items-center md:justify-between xl:px-12 2xl:px-16"
+	>
+		<div>
+			<h2 class="text-2xl font-semibold">Ready to apply?</h2>
+			<p class="mt-2 text-sm text-white/80">
+				Call <a class="underline" href={`tel:${SITE_PHONE.replaceAll(' ', '')}`}>{SITE_PHONE}</a>
+				or visit us at <a class="underline" href={GOOGLE_MAPS_URL}>{SITE_ADDRESS}</a>.
+			</p>
+		</div>
+		<a
+			class="inline-flex min-h-11 items-center justify-center rounded-md bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+			href="/admissions/apply"
+		>
+			Apply online
+		</a>
+	</div>
+</section>

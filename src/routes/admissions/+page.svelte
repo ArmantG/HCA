@@ -1,132 +1,101 @@
-<section class="mx-auto max-w-5xl px-6 py-16">
-	<div class="mb-10">
-		<p class="text-sm uppercase tracking-[0.3em] text-accent">Admissions</p>
-		<h1 class="font-gt-walsheim-pro-medium mt-2 text-4xl text-neutral-900 sm:text-5xl">
-			Start your journey at Harding Christian Academy
-		</h1>
-		<p class="mt-4 max-w-2xl text-base text-neutral-600 sm:text-lg">
-			We welcome families who value faith, academic excellence, and community. Follow these
-			steps to begin the admissions process. Admissions are open for Grades 1 to 7 across the
-			Foundation, Intermediate, and Senior Phases.
-		</p>
-	</div>
+<script lang="ts">
+	const steps = [
+		'Submit the completed online application and supporting documents.',
+		'The school reviews the application and may request additional information.',
+		'An interview or readiness/placement check may be scheduled where needed.',
+		'The school communicates the outcome in writing: accept, waitlist, or decline.',
+		'Accepted families complete enrolment confirmation, fee arrangements, and policy acknowledgements.'
+	]
 
-	<div class="grid gap-8 lg:grid-cols-2">
-		<div class="rounded-2xl border border-neutral-200 bg-white p-8">
-			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Admissions steps</h2>
-			<ol class="mt-6 space-y-4 text-sm text-neutral-700 sm:text-base">
-				<li>
-					<span class="font-semibold">1. Enquire</span> — Submit an enquiry or call our office to
-					confirm space for your preferred grade.
-				</li>
-				<li>
-					<span class="font-semibold">2. Apply</span> — Complete the admissions application form
-					and provide the required documents.
-				</li>
-				<li>
-					<span class="font-semibold">3. Interview</span> — We schedule a meeting with the family
-					and learner where appropriate.
-				</li>
-				<li>
-					<span class="font-semibold">4. Confirm</span> — Receive the outcome and confirm placement
-					with the required fees.
-				</li>
-			</ol>
-		</div>
-		<div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-8">
-			<h2 class="font-gt-walsheim-pro-medium text-2xl text-neutral-900">Checklist</h2>
-			<ul class="mt-6 space-y-3 text-sm text-neutral-700 sm:text-base">
-				<li>Copy of learner’s birth certificate</li>
-				<li>Latest report card or school results</li>
-				<li>Transfer or leaving letter (if applicable)</li>
-				<li>Parent or guardian ID copy</li>
-				<li>Completed application form</li>
-			</ul>
+	const documents = [
+		'Completed application form',
+		'Parent or guardian identity document copy',
+		"Learner's birth certificate copy",
+		"Learner's immunisation record / clinic card",
+		'Previous school report and assessments where available',
+		'Medical details and emergency authorisation',
+		'Indemnity and consent forms',
+		'Fee payment agreement / undertaking'
+	]
+</script>
+
+<section class="bg-white">
+	<div class="mx-auto max-w-[1760px] px-5 py-14 sm:px-8 xl:px-12 2xl:px-16">
+		<p class="text-sm font-semibold uppercase tracking-wide text-gold">Admissions</p>
+		<h1 class="mt-3 max-w-4xl text-4xl font-semibold text-navy">
+			Apply online, then complete enrolment with the office.
+		</h1>
+		<p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
+			The admissions process is designed to be clear, fair, and practical for a small-school
+			context. Admission is only final once HCA has issued written acceptance and the family has
+			completed the enrolment confirmation steps.
+		</p>
+		<div class="mt-8">
 			<a
-				class="mt-8 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm text-white transition-all hover:scale-105 hover:brightness-110"
+				class="inline-flex min-h-11 items-center justify-center rounded-md bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
 				href="/admissions/apply"
 			>
-				Apply now
+				Start application
 			</a>
 		</div>
 	</div>
-	<!-- Admissions Policy Highlights -->
-	<div class="mt-16 space-y-8">
-		<div>
-			<h2 class="font-gt-walsheim-pro-medium text-3xl text-neutral-900">
-				Admissions policy highlights
-			</h2>
-			<p class="mt-3 text-base text-neutral-600">
-				Key information about our admissions requirements and process.
+</section>
+
+<section class="px-5 py-12 sm:px-8 xl:px-12 2xl:px-16">
+	<div class="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-2 lg:gap-20">
+		<div class="mx-auto w-full max-w-xl">
+			<h2 class="text-2xl font-semibold text-slate-900">Admissions steps</h2>
+			<ol class="mt-6 space-y-4 text-slate-700">
+				{#each steps as step, index (step)}
+					<li class="flex gap-3">
+						<span
+							class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold text-sm font-semibold text-navy"
+						>
+							{index + 1}
+						</span>
+						<span>{step}</span>
+					</li>
+				{/each}
+			</ol>
+		</div>
+
+		<div class="mx-auto w-full max-w-xl">
+			<h2 class="text-2xl font-semibold text-slate-900">Documents required</h2>
+			<ul class="mt-6 space-y-3 text-slate-700">
+				{#each documents as document (document)}
+					<li class="flex gap-3">
+						<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"></span>
+						<span>{document}</span>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="border-y border-slate-200 bg-slate-50">
+	<div
+		class="mx-auto grid max-w-[1760px] gap-8 px-5 py-12 sm:px-8 md:grid-cols-3 xl:px-12 2xl:px-16"
+	>
+		<div class="bg-white p-6">
+			<h2 class="text-xl font-semibold text-slate-900">Christian ethos</h2>
+			<p class="mt-3 text-sm leading-6 text-slate-700">
+				Families are expected to support the school's Bible-based Christian ethos in practice.
 			</p>
 		</div>
-
-		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-xl border border-neutral-200 bg-white p-6">
-				<h3 class="font-gt-walsheim-pro-medium text-lg text-neutral-900">Eligibility</h3>
-				<ul class="mt-4 space-y-2 text-sm text-neutral-700">
-					<li>• Age requirements must be met by the academic year start date</li>
-					<li>• Previous academic records will be reviewed</li>
-					<li>• Parents must align with the school's Christian values and ethos</li>
-					<li>• Medical and special needs disclosed during application</li>
-				</ul>
-			</div>
-
-			<div class="rounded-xl border border-neutral-200 bg-white p-6">
-				<h3 class="font-gt-walsheim-pro-medium text-lg text-neutral-900">
-					Application timeline
-				</h3>
-				<ul class="mt-4 space-y-2 text-sm text-neutral-700">
-					<li>• Applications reviewed on a rolling basis</li>
-					<li>• Early submission recommended for limited spaces</li>
-					<li>• Interview scheduled within 2 weeks of application</li>
-					<li>• Outcome communicated within 1 week after interview</li>
-				</ul>
-			</div>
-
-			<div class="rounded-xl border border-neutral-200 bg-white p-6">
-				<h3 class="font-gt-walsheim-pro-medium text-lg text-neutral-900">Required documents</h3>
-				<ul class="mt-4 space-y-2 text-sm text-neutral-700">
-					<li>• Certified copy of birth certificate</li>
-					<li>• Latest academic report (if transferring)</li>
-					<li>• Transfer or leaving letter from previous school</li>
-					<li>• Parent/guardian ID documents</li>
-					<li>• Proof of residence</li>
-					<li>• Immunization records</li>
-				</ul>
-			</div>
-
-			<div class="rounded-xl border border-neutral-200 bg-white p-6">
-				<h3 class="font-gt-walsheim-pro-medium text-lg text-neutral-900">Registration fees</h3>
-				<ul class="mt-4 space-y-2 text-sm text-neutral-700">
-					<li>• Non-refundable application fee applies</li>
-					<li>• Registration fee required to secure placement</li>
-					<li>• Sibling discounts may be available</li>
-					<li>• Payment plans can be arranged through the office</li>
-				</ul>
-			</div>
+		<div class="bg-white p-6">
+			<h2 class="text-xl font-semibold text-slate-900">Placement checks</h2>
+			<p class="mt-3 text-sm leading-6 text-slate-700">
+				Interviews, readiness checks, or previous assessments may be used to plan suitable
+				placement.
+			</p>
 		</div>
-
-		<div class="rounded-xl border-2 border-accent/20 bg-accent/5 p-6">
-			<div class="flex items-start gap-4">
-				<div class="flex-1">
-					<h3 class="font-gt-walsheim-pro-medium text-lg text-neutral-900">Important to note</h3>
-					<p class="mt-2 text-sm text-neutral-700">
-						Admission is subject to space availability and alignment with our school's Christian
-						values. Parents are expected to support the school's code of conduct and participate
-						in the school community. All submitted documents must be authentic and verifiable.
-						False information may result in immediate cancellation of the application or
-						enrollment.
-					</p>
-					<a
-						class="mt-4 inline-flex text-sm font-medium text-accent underline hover:text-accent/80"
-						href="/policies/admissions-policy.pdf"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						View full admissions policy (PDF)
-					</a>
-				</div>
-			</div>
+		<div class="bg-white p-6">
+			<h2 class="text-xl font-semibold text-slate-900">Probation period</h2>
+			<p class="mt-3 text-sm leading-6 text-slate-700">
+				New learners may be admitted on probation for up to three months while adjustment is
+				monitored.
+			</p>
 		</div>
-	</div></section>
+	</div>
+</section>

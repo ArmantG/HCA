@@ -33,4 +33,4 @@ declare module '*.svx' {
 	}
 }
 
-export { };
+export {}

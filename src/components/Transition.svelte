@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { url, children } = $props<{ url: URL; children: () => any }>();
+	let { url, children }: { url: string; children: () => any } = $props()
 </script>
 
 {#key url}

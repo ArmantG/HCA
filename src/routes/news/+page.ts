@@ -1,12 +1,6 @@
-import { getAllNewsPosts } from '$lib/content/news'
+import { redirect } from '@sveltejs/kit'
 import type { PageLoad } from './$types'
 
 export const load: PageLoad = () => {
-	return {
-		posts: getAllNewsPosts(),
-		seo: {
-			title: 'News',
-			description: 'School news, announcements, and updates from Harding Christian Academy.'
-		}
-	}
+	redirect(308, '/about')
 }

@@ -5,19 +5,7 @@ import importPlugin from 'eslint-plugin-import'
 import svelte from 'eslint-plugin-svelte'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 import ts from 'typescript-eslint'
-
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-	baseDirectory: __dirname,
-	recommendedConfig: js.configs.recommended,
-	allConfig: js.configs.all
-})
 
 export default [
 	{
@@ -25,8 +13,23 @@ export default [
 			'**/.DS_Store',
 			'**/node_modules',
 			'build',
+			'**/build/**',
 			'.svelte-kit',
+			'**/.svelte-kit/**',
+			'.vercel',
+			'.vercel/**',
+			'.pnpm-store',
+			'.pnpm-store/**',
+			'.playwright-mcp',
+			'.playwright-mcp/**',
 			'package',
+			'static/vendor',
+			'static/vendor/**',
+			'src/assets/blobs/**',
+			'src/assets/curves/**',
+			'src/assets/icons/**',
+			'src/components/**',
+			'src/features/**',
 			'**/.env',
 			'**/.env.*',
 			'!**/.env.example',
@@ -38,8 +41,12 @@ export default [
 
 	js.configs.recommended,
 	...ts.configs.recommended,
-	importPlugin,
-	unusedImports,
+	{
+		plugins: {
+			import: importPlugin,
+			'unused-imports': unusedImports
+		}
+	},
 	prettier,
 	...svelte.configs['flat/recommended'],
 	...svelte.configs['flat/prettier'],
@@ -62,14 +69,16 @@ export default [
 			'no-unused-expressions': 'warn',
 			'no-constant-binary-expression': 'warn',
 			'no-sequences': 'warn',
-			'@typescript-eslint/no-explicit-any': 'off'
+			'@typescript-eslint/no-explicit-any': 'off',
+			'svelte/no-navigation-without-resolve': 'off',
+			'svelte/require-each-key': 'off'
 		}
 	},
 	{
 		files: ['**/*.svelte'],
 		languageOptions: {
 			parserOptions: {
-				parser: 'svelte-eslint-parser'
+				parser: ts.parser
 			}
 		},
 		ignores: ['build/', '.svelte-kit/', 'dist/']

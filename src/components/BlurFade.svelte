@@ -1,24 +1,35 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
-	import { inview } from 'svelte-inview';
+	import { cn } from '$lib/utils'
+	import { inview } from 'svelte-inview'
+	import { AnimatePresence, Motion } from 'svelte-motion'
+	import type { Snippet } from 'svelte'
 
-	import { AnimatePresence, Motion, useAnimation } from 'svelte-motion';
+	let {
+		duration = 1.4,
+		delay = 0,
+		yOffset = 10,
+		inViewMargin = '-50px',
+		blur = '6px',
+		once = false,
+		class: className = '',
+		children
+	}: {
+		duration?: number
+		delay?: number
+		yOffset?: number
+		inViewMargin?: string
+		blur?: string
+		once?: boolean
+		class?: string
+		children: Snippet
+	} = $props()
 
-	export let duration = 1.4;
-	export let delay = 0;
-	export let yOffset = 10;
-	export let inViewMargin = '-50px';
-	export let blur = '6px';
-	export let id = crypto.randomUUID().slice(0, 8);
-	export let once = false;
-	let defaultVariants = {
+	const id = crypto.randomUUID().slice(0, 8)
+	const defaultVariants = $derived({
 		hidden: { opacity: 0, y: yOffset, filter: `blur(${blur})` },
 		visible: { opacity: 1, y: 0, filter: `blur(0px)` }
-	};
-	let isInView = 'hidden';
-
-	let className = '';
-	export { className as class };
+	})
+	let isInView: 'hidden' | 'visible' = $state('hidden')
 </script>
 
 <AnimatePresence let:item list={[{ key: id }]}>
@@ -34,15 +45,16 @@
 		}}
 		let:motion
 	>
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			use:inview={{ rootMargin: inViewMargin, unobserveOnEnter: once }}
 			use:motion
-			on:inview_change={({ detail }) => {
-				isInView = detail.inView ? 'visible' : 'hidden';
+			oninview_change={(e) => {
+				isInView = e.detail.inView ? 'visible' : 'hidden'
 			}}
 			class={cn(className)}
 		>
-			<slot>Default</slot>
+			{@render children()}
 		</div>
 	</Motion>
 </AnimatePresence>

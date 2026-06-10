@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=block');
-
 @font-face {
 	font-family: 'Inter';
 	font-display: swap;
@@ -234,7 +232,13 @@
 }
 
 body {
-	background: var(--color-cream);
+	background: #f8fafc;
+	color: #0f172a;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-navy);
+	outline-offset: 2px;
 }
 
 @font-face {
@@ -252,14 +256,6 @@ body {
 :root {
 	--scrollbar-track: #162b54;
 	--scrollbar-thumb: #6d778c;
-}
-
-.bg-dagitab {
-	background-image: url('./assets/images/dagitab.webp');
-}
-
-.bg-default {
-	background-image: url('./assets/images/pcsAnnex2.webp');
 }
 
 /* Custom Gradient Utilities */

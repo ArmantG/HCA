@@ -13,10 +13,9 @@ export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const parsedPayload = newsletterSchema.safeParse(await request.json())
 
-		console.log("🚀 ----------------------------------------------🚀")
-		console.log("🚀 ~ :17 ~ POST ~ parsedPayload:", parsedPayload)
-		console.log("🚀 ----------------------------------------------🚀")
-
+		console.log('🚀 ----------------------------------------------🚀')
+		console.log('🚀 ~ :17 ~ POST ~ parsedPayload:', parsedPayload)
+		console.log('🚀 ----------------------------------------------🚀')
 
 		if (!parsedPayload.success) {
 			return json(

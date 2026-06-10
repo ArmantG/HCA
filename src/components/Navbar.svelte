@@ -1,21 +1,18 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import { showMobileDropdown } from '$lib/stores';
-	import { onMount } from 'svelte';
-	import { Dropdown } from '.';
-	import { ChevronRight, HamburgerMenu } from '../assets/icons';
-	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '../assets/images';
-	import { navItems } from '../constants';
-	import NavbarMobile from './mobile/NavbarMobile.svelte';
+	import { page } from '$app/state'
+	import { mobileMenu } from '$lib/mobile-menu.svelte'
+	import { onMount } from 'svelte'
+	import { Dropdown } from '.'
+	import { ChevronRight, HamburgerMenu } from '../assets/icons'
+	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '../assets/images'
+	import { navItems } from '../constants'
+	import NavbarMobile from './mobile/NavbarMobile.svelte'
 
-	type NavItem = (typeof navItems)[number];
+	type NavItem = (typeof navItems)[number]
 
-	let scrolled = $state(false);
-	let hovered = $state(false);
-	let hoveredElement = $state('');
-
-	// For smaller devices
-	let show = $state(false);
+	let scrolled = $state(false)
+	let hovered = $state(false)
+	let hoveredElement = $state('')
 
 	const activePrefixes: Record<string, string[]> = {
 		home: ['/'],
@@ -31,72 +28,68 @@
 		fees: ['/fees'],
 		news: ['/news'],
 		contact: ['/contact']
-	};
+	}
 
-	const currentPath = $derived(page.url.pathname);
-
-	showMobileDropdown.subscribe((value) => (show = value));
+	const currentPath = $derived(page.url.pathname)
 
 	$effect(() => {
-		page.url.pathname;
-		hovered = false;
-		hoveredElement = '';
-		showMobileDropdown.update(() => (show = false));
-	});
+		page.url.pathname
+		hovered = false
+		hoveredElement = ''
+		mobileMenu.open = false
+	})
 
 	function shrinkNav() {
-		window.scrollY > 20 ? (scrolled = true) : (scrolled = false);
+		window.scrollY > 20 ? (scrolled = true) : (scrolled = false)
 	}
 
 	function handleClickOutside(e: MouseEvent) {
-		const target = e.target as HTMLElement;
-		const clickedNavLink = target.closest('[data-nav-link="true"]');
+		const target = e.target as HTMLElement
+		const clickedNavLink = target.closest('[data-nav-link="true"]')
 
 		if (clickedNavLink) {
-			hovered = false;
-			hoveredElement = '';
-			showMobileDropdown.update(() => (show = false));
-			return;
+			hovered = false
+			hoveredElement = ''
+			mobileMenu.open = false
+			return
 		}
 
 		if (window.innerWidth >= 1024) {
 			if (!target.closest('[data-desktop-nav="true"]')) {
-				hovered = false;
-				hoveredElement = '';
+				hovered = false
+				hoveredElement = ''
 			}
-			return;
+			return
 		}
 
-		const clickedMobileNav = target.closest('[data-mobile-nav="true"]');
-		const clickedMobileToggle = target.closest('[data-mobile-toggle="true"]');
+		const clickedMobileNav = target.closest('[data-mobile-nav="true"]')
+		const clickedMobileToggle = target.closest('[data-mobile-toggle="true"]')
 
-		if (show && !clickedMobileNav && !clickedMobileToggle) {
-			showMobileDropdown.update(() => (show = false));
+		if (mobileMenu.open && !clickedMobileNav && !clickedMobileToggle) {
+			mobileMenu.open = false
 		}
 	}
 
 	function isActiveNav(item: NavItem) {
 		if (item.path === '/') {
-			return currentPath === '/';
+			return currentPath === '/'
 		}
 
-		const prefixes = activePrefixes[item.data] ?? [item.path];
+		const prefixes = activePrefixes[item.data] ?? [item.path]
 
-		return prefixes.some(
-			(prefix) => currentPath === prefix || currentPath.startsWith(`${prefix}/`)
-		);
+		return prefixes.some((prefix) => currentPath === prefix || currentPath.startsWith(`${prefix}/`))
 	}
 
-	const applyClass = $derived(page.url.pathname === '/contact');
+	const applyClass = $derived(page.url.pathname === '/contact')
 
 	onMount(() => {
-		window.addEventListener('scroll', shrinkNav);
-		document.addEventListener('click', handleClickOutside, true);
+		window.addEventListener('scroll', shrinkNav)
+		document.addEventListener('click', handleClickOutside, true)
 
 		return () => {
-			document.removeEventListener('click', handleClickOutside, true);
-		};
-	});
+			document.removeEventListener('click', handleClickOutside, true)
+		}
+	})
 </script>
 
 <div class="fixed left-0 top-0 z-100 w-full">
@@ -152,12 +145,12 @@
 						<button
 							class="flex h-full items-center gap-2 px-4 text-lg transition-colors duration-300"
 							onclick={(e) => {
-								e.stopPropagation();
+								e.stopPropagation()
 								if (hoveredElement === item.data && hovered) {
-									hovered = false;
+									hovered = false
 								} else {
-									hoveredElement = item.data;
-									hovered = true;
+									hoveredElement = item.data
+									hovered = true
 								}
 							}}
 							data-nav={item.data}
@@ -212,14 +205,14 @@
 			</div>
 		</a>
 		<button
-			onclick={() => showMobileDropdown.update(() => (show = !show))}
+			onclick={() => (mobileMenu.open = !mobileMenu.open)}
 			aria-label="hamburger menu"
 			data-mobile-toggle="true"
 		>
 			<HamburgerMenu />
 		</button>
 	</nav>
-	{#if show}
+	{#if mobileMenu.open}
 		<NavbarMobile />
 	{/if}
 </div>
