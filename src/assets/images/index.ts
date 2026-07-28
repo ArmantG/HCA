@@ -3,18 +3,10 @@ import juniorHigh from './juniorHigh.webp'
 import pcsAnnex from './pcsAnnex.webp'
 import pcsAnnex2 from './pcsAnnex2.webp'
 import seniorHigh from './seniorHigh.webp'
-// import pcsMain from './pcsMain.png';
-// import kessokuBand from './KessokuBand.webp';
-// import qrCode from './pcsQrCode.webp';
-// import pcsMembers from './pcsMembers.webp';
 import logoCandleBook from './logoCandleBook.webp'
 import logoLeaf from './logoLeaf.webp'
 import pcsLogoNew from './pcsLogoNew.webp'
 import pcsLogoNewOutlineWhite from './pcsLogoNewOutlineWhite.png'
-// import ceap from './ceap.webp';
-// import mapsa from './mapsa.webp';
-// import paascu from './paascu.webp';
-// import padss from './padss.webp';
 import abm from './abm.webp'
 import ad from './ad.webp'
 import bsp from './bsp.webp'

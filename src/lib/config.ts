@@ -1,4 +1,3 @@
-export const SITE_TITLE = 'Harding Christian Academy'
 export const SITE_DESCRIPTION =
 	'Harding Christian Academy offers Christ-centered education with academic excellence and character formation.'
 export const SITE_DOMAIN = 'hardingchristianacademy.co.za'

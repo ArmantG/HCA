@@ -15,7 +15,7 @@
 	let email = $state('')
 	let name = $state('')
 	let lastName = $state('')
-	let button_disabled = $state(false)
+	let buttonDisabled = $state(false)
 	let error = $state(false)
 	let submitted = $state(false)
 
@@ -104,9 +104,10 @@
 				'Oh No! 😵 This email already exists. <br/> Try a different email?',
 				TOAST_OPTIONS
 			)
+			buttonDisabled = true
 			setTimeout(
 				() => {
-					button_disabled = false
+					buttonDisabled = false
 				},
 				(responseData?.time_remaining ?? 0) * 1000
 			)
@@ -188,7 +189,7 @@
 				</div>
 
 				<div>
-					<AnimatedSubscribeButton subscribeStatus={submitted} />
+					<AnimatedSubscribeButton subscribeStatus={submitted} disabled={buttonDisabled} />
 				</div>
 			</div>
 		</div>

@@ -3,7 +3,7 @@
 	import { format } from 'date-fns'
 	import type { ObserverEventDetails, Options } from 'svelte-inview'
 	import { inview } from 'svelte-inview'
-	import OrangeBlob1 from '../assets/blobs/OrangeBlob1.svelte'
+	import OrangeBlob1 from '$assets/blobs/OrangeBlob1.svelte'
 	import {
 		bsp,
 		confirmation,
@@ -13,7 +13,7 @@
 		kinaadman2,
 		kinaadman3,
 		mathquizbee
-	} from '../assets/images'
+	} from '$assets/images'
 	import '../styles/animations.css'
 
 	let { events } = $props<{ events: Event[] }>()
@@ -225,7 +225,7 @@
 		<div
 			class="flex w-full flex-col items-center justify-center gap-8 px-[10%] lg:flex-row lg:gap-16"
 		>
-			{#each events as event, idx (idx)}
+			{#each events as event, idx (event.id)}
 				<div
 					class="lg:hover:shadow-card transition-[filter,box-shadow] w-full max-w-sm flex justify-center duration-300 lg:brightness-75 lg:hover:brightness-100 lg:[&>div>div>div>a]:hover:border-white lg:[&>div>div>div>div]:hover:after:scale-x-100 lg:[&>div>div>div>p]:hover:text-white"
 				>

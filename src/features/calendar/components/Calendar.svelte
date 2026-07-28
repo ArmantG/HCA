@@ -12,9 +12,10 @@
 		startOfToday,
 		startOfWeek
 	} from 'date-fns'
-	import { ChevronLeft, ChevronRight } from '../assets/icons'
+	import type { Event } from '$lib/data/events'
+	import { ChevronLeft, ChevronRight } from '$assets/icons'
 
-	let { events = [] } = $props<{ events?: any[] }>()
+	let { events = [] } = $props<{ events?: Event[] }>()
 
 	let today = startOfToday()
 	let currentMonth = format(today, 'MMM-yyyy')
@@ -48,9 +49,9 @@
 	}
 
 	// Normalize and Sort events based on the difference between the start and end
-	const processedEvents = $derived(
-		(events || [])
-			.map((event: any) => ({
+	const processedEvents: Event[] = $derived(
+		events
+			.map((event: Event) => ({
 				...event,
 				content: {
 					...event.content,
@@ -58,19 +59,23 @@
 					end: event.content?.end || event.content?.date
 				}
 			}))
-			.sort((a: any, b: any) => {
-				const aDiff = new Date(a.content.end).getTime() - new Date(a.content.start).getTime()
-				const bDiff = new Date(b.content.end).getTime() - new Date(b.content.start).getTime()
+			.sort((a: Event, b: Event) => {
+				const aStart = a.content.start ?? a.content.date
+				const aEnd = a.content.end ?? a.content.date
+				const bStart = b.content.start ?? b.content.date
+				const bEnd = b.content.end ?? b.content.date
+				const aDiff = new Date(aEnd).getTime() - new Date(aStart).getTime()
+				const bDiff = new Date(bEnd).getTime() - new Date(bStart).getTime()
 				return bDiff - aDiff
 			})
 	)
 
 	// Group the sorted events by date
-	let eventsByDate = $state(new Map<string, any[]>())
+	let eventsByDate = $state(new Map<string, Event[]>())
 
 	$effect(() => {
-		const map = new Map<string, any[]>()
-		processedEvents.forEach((event: any) => {
+		const map = new Map<string, Event[]>()
+		processedEvents.forEach((event: Event) => {
 			if (!event.content.start || !event.content.end) return
 			const dates = getDates(event.content.start, event.content.end)
 			dates.forEach((date) => {
@@ -86,9 +91,7 @@
 	let clickedDay = $state(today)
 	let clickedDayFormat = $state(format(today, 'yyyy-MM-dd'))
 
-	function handleDateClick(date: string) {
-		return eventsByDate.get(date)
-	}
+	const eventsForSelectedDay = $derived(eventsByDate.get(clickedDayFormat))
 
 	const colStartClasses = [
 		'',
@@ -166,7 +169,7 @@
 								</time>
 							</div>
 							<div class="hidden w-full flex-col gap-4 py-2 lg:flex">
-								{#each eventsByDate.get(format(day, 'yyyy-MM-dd')) || [] as event, eventIdx (eventIdx)}
+								{#each eventsByDate.get(format(day, 'yyyy-MM-dd')) || [] as event (event.id ?? event.content?.title)}
 									<div
 										class={`relative hidden w-full rounded-r-lg bg-neutral-200 before:w-2 before:rounded-full before:bg-orange-500 before:content-[''] md:flex`}
 									>
@@ -216,18 +219,20 @@
 			<h2 class="text-2xl font-bold md:mb-4 md:text-5xl">
 				{format(clickedDay, 'MMMM d, yyyy')}
 			</h2>
-			{#if handleDateClick(clickedDayFormat)}
+			{#if eventsForSelectedDay}
 				<div class="flex flex-col justify-center">
-					{#each handleDateClick(clickedDayFormat) as event (event.id ?? event.content?.title)}
+					{#each eventsForSelectedDay as event (event.id ?? event.content?.title)}
 						<div class="flex w-full items-baseline gap-4 border-neutral-200">
 							<span class="w-1/2 text-sm sm:text-xl">{event.content.title}</span>
 							<div class="w-1/2">
 								<div class="text-sm sm:text-xl">
-									{#if event.content.start === event.content.end}
-										<span>{format(new Date(event.content.start), 'MMMM d, yyyy')}</span>
-									{:else}
-										<span>{format(new Date(event.content.start), 'MMMM d, yyyy')}</span> -
-										<span>{format(new Date(event.content.end), 'MMMM d, yyyy')}</span>
+									{#if event.content.start && event.content.end}
+										{#if event.content.start === event.content.end}
+											<span>{format(new Date(event.content.start), 'MMMM d, yyyy')}</span>
+										{:else}
+											<span>{format(new Date(event.content.start), 'MMMM d, yyyy')}</span> -
+											<span>{format(new Date(event.content.end), 'MMMM d, yyyy')}</span>
+										{/if}
 									{/if}
 								</div>
 							</div>

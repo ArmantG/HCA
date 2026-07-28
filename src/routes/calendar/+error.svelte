@@ -1,22 +1,25 @@
-<!-- <div class="bg-white h-screen">
-  <p class="text-black text-3xl text-center">An error occured, try refreshing!</p>
-</div> -->
-
 <script lang="ts">
+	import type { Event } from '$lib/data/events'
 	import { format } from 'date-fns'
 	import { Calendar } from '../../features'
 
 	const today = format(new Date(), 'yyyy-MM-dd')
 
-	let errorEvents = [
+	let errorEvents: Event[] = [
 		{
 			id: 'error',
+			name: 'error',
+			slug: 'error',
+			full_slug: 'error',
+			created_at: today,
+			published_at: today,
 			content: {
 				title: 'Error Loading Events',
 				description: 'An error occurred while fetching calendar data.',
 				date: today,
 				start: today,
 				end: today,
+				link: '',
 				categories: []
 			}
 		}

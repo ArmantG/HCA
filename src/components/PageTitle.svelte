@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Wall from '../assets/images/pcsMain.png'
+	import Wall from '$assets/images/pcsMain.png'
 	import BlurFade from './BlurFade.svelte'
 
 	let { pageTitle = 'pageTitle', image = Wall }: { pageTitle?: string; image?: string } = $props()

@@ -1,5 +1,5 @@
 import { dev } from '$app/environment'
-import registerEmail from '$lib/newsletter/emailoctopus.js'
+import registerEmail from '$lib/server/emailoctopus.js'
 import { error, json, type RequestHandler } from '@sveltejs/kit'
 import { z } from 'zod'
 
@@ -13,9 +13,9 @@ export const POST: RequestHandler = async ({ request }) => {
 	try {
 		const parsedPayload = newsletterSchema.safeParse(await request.json())
 
-		console.log('🚀 ----------------------------------------------🚀')
-		console.log('🚀 ~ :17 ~ POST ~ parsedPayload:', parsedPayload)
-		console.log('🚀 ----------------------------------------------🚀')
+		if (dev) {
+			console.log('🚀 ~ POST ~ parsedPayload:', parsedPayload)
+		}
 
 		if (!parsedPayload.success) {
 			return json(

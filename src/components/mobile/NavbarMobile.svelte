@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation'
 	import { mobileMenu } from '$lib/mobile-menu.svelte'
-	import { ChevronRight } from '../../assets/icons'
+	import { ChevronRight } from '$assets/icons'
 	import { navItems } from '../../constants'
 	import DropdownMobile from './DropdownMobile.svelte'
 

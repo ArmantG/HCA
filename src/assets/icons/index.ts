@@ -1,3 +1,4 @@
+import ChevronLeft from './ChevronLeft.svelte'
 import ChevronRight from './ChevronRight.svelte'
 import HamburgerMenu from './HamburgerMenu.svelte'
 import Telephone from './Telephone.svelte'
@@ -29,6 +30,7 @@ import Conclusion from './Conclusion.svelte'
 import Stop from './Stop.svelte'
 
 export {
+	ChevronLeft,
 	ChevronRight,
 	HamburgerMenu,
 	Email,

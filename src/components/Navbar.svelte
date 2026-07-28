@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state'
 	import { mobileMenu } from '$lib/mobile-menu.svelte'
-	import { onMount } from 'svelte'
-	import { Dropdown } from '.'
-	import { ChevronRight, HamburgerMenu } from '../assets/icons'
-	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '../assets/images'
+	import { onMount, untrack } from 'svelte'
+	import { ChevronRight, HamburgerMenu } from '$assets/icons'
+	import { pcsLogoNew, pcsLogoNewOutlineWhite } from '$assets/images'
 	import { navItems } from '../constants'
+	import Dropdown from './Dropdown.svelte'
 	import NavbarMobile from './mobile/NavbarMobile.svelte'
 
 	type NavItem = (typeof navItems)[number]
@@ -34,9 +34,11 @@
 
 	$effect(() => {
 		page.url.pathname
-		hovered = false
-		hoveredElement = ''
-		mobileMenu.open = false
+		untrack(() => {
+			hovered = false
+			hoveredElement = ''
+			mobileMenu.open = false
+		})
 	})
 
 	function shrinkNav() {

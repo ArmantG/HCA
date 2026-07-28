@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { pcsAnnex2 } from '../assets/images'
+	import { pcsAnnex2 } from '$assets/images'
 	let { title } = $props<{ title: string }>()
 </script>
 

@@ -18,6 +18,11 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+		alias: {
+			$assets: 'src/assets',
+			$components: 'src/components',
+			$styles: 'src/styles'
+		},
 		csrf: {
 			trustedOrigins: [
 				'https://hca-one.vercel.app/',

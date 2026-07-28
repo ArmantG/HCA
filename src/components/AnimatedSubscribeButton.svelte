@@ -2,7 +2,10 @@
 	import { CheckIcon, ChevronRightIcon } from 'lucide-svelte'
 	import { Motion } from 'svelte-motion'
 
-	let { subscribeStatus = false } = $props()
+	let { subscribeStatus = false, disabled = false } = $props<{
+		subscribeStatus?: boolean
+		disabled?: boolean
+	}>()
 
 	let isSubscribed = $state()
 
@@ -31,7 +34,8 @@
 	<Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} let:motion>
 		<button
 			type="submit"
-			class="relative flex cursor-pointer items-center justify-center rounded-md border-none p-1 px-2 align-middle bg-[#2ff1e8] dark:bg-[#2ff1e8]"
+			{disabled}
+			class="relative flex cursor-pointer items-center justify-center rounded-md border-none p-1 px-2 align-middle bg-[#2ff1e8] dark:bg-[#2ff1e8] disabled:cursor-not-allowed disabled:opacity-60"
 			use:motion
 		>
 			<Motion initial={{ y: -50 }} animate={{ y: 0 }} let:motion>
@@ -48,7 +52,8 @@
 	<Motion initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} let:motion>
 		<button
 			type="submit"
-			class="relative flex cursor-pointer items-center justify-center rounded-md border-none p-1 px-2 align-middle bg-gray-900 dark:bg-gray-100"
+			{disabled}
+			class="relative flex cursor-pointer items-center justify-center rounded-md border-none p-1 px-2 align-middle bg-gray-900 dark:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-60"
 			use:motion
 		>
 			<Motion initial={{ x: 0 }} exit={{ x: 50, transition: { duration: 0.1 } }} let:motion>

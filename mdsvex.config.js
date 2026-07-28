@@ -1,7 +1,7 @@
 import rehypeSectionize from '@hbsnow/rehype-sectionize'
 import { defineMDSveXConfig as defineConfig } from 'mdsvex'
 import relativeImages from 'mdsvex-relative-images'
-import path from 'path'
+import path from 'node:path'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import autolinkHeadings from 'rehype-autolink-headings'
 import rehypeExternalLinks from 'rehype-external-links'

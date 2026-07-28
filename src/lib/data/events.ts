@@ -7,6 +7,8 @@ export interface EventContent {
 	title: string
 	description: string
 	date: string
+	start?: string
+	end?: string
 	link: string
 	categories: string[]
 }
@@ -83,47 +85,3 @@ export const events: Event[] = [
 		}
 	}
 ]
-
-/**
- * Get all events
- */
-export function getAllEvents(): Event[] {
-	return events
-}
-
-/**
- * Get the latest N events
- */
-export function getLatestEvents(count: number = 3): Event[] {
-	return events
-		.sort((a, b) => new Date(b.content.date).getTime() - new Date(a.content.date).getTime())
-		.slice(0, count)
-}
-
-/**
- * Get events by category
- */
-export function getEventsByCategory(category: string): Event[] {
-	return events.filter((event) => event.content.categories.includes(category))
-}
-
-/**
- * Get Foundation Phase events
- */
-export function getFoundationPhaseEvents(): Event[] {
-	return getEventsByCategory('foundation_phase')
-}
-
-/**
- * Get Intermediate Phase events
- */
-export function getIntermediatePhaseEvents(): Event[] {
-	return getEventsByCategory('intermediate_phase')
-}
-
-/**
- * Get Senior Phase events
- */
-export function getSeniorPhaseEvents(): Event[] {
-	return getEventsByCategory('senior_phase')
-}

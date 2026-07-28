@@ -1,5 +1,5 @@
 <script lang="ts">
-	import pcsLogoNewOutlineWhiteLoader from '../assets/images/pcsLogoNewOutlineWhiteLoader.png'
+	import pcsLogoNewOutlineWhiteLoader from '$assets/images/pcsLogoNewOutlineWhiteLoader.png'
 
 	let { style } = $props<{ style: string }>()
 </script>
